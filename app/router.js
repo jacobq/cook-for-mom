@@ -1,12 +1,36 @@
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
+import { get } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { scheduleOnce } from '@ember/runloop';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+  metrics: service(),
+
+  didTransition() {
+    this._super(...arguments);
+
+    if (typeof FastBoot === undefined) {
+      trackPage(this);
+    }
+  },
+
+  _trackPage() {
+  }
 });
 
 Router.map(function() {
 });
 
 export default Router;
+
+function trackPage(ctx) {
+  scheduleOnce('afterRender', ctx, () => {
+    const page = ctx.get('url');
+    const title = ctx.getWithDefault('currentRouteName', 'unknown');
+
+    get(ctx, 'metrics').trackPage({ page, title });
+  });
+}
