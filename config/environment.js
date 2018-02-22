@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'cook-for-mom',
+    podModulePrefix: 'cook-for-mom/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
