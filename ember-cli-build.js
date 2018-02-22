@@ -11,6 +11,7 @@ module.exports = function(defaults) {
       'insertEmberWormholeElementToDom': false
     },
     prember: {
+      baseRoot: 'https://cookformom.com',
       urls: [
         '/'
       ]

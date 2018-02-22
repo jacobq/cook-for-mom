@@ -7156,6 +7156,14 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
+prember-sitemap-generator@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/prember-sitemap-generator/-/prember-sitemap-generator-0.0.3.tgz#7de73d5cb9b2d68f5d2f3c5d05746d4e9b98dbc2"
+  dependencies:
+    broccoli-file-creator "^1.1.1"
+    broccoli-funnel "^2.0.1"
+    chalk "^2.3.0"
+
 prember@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/prember/-/prember-0.2.2.tgz#77e6c2984908165138b7c1538269e3a9e64d9377"

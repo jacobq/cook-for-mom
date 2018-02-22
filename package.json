@@ -47,7 +47,8 @@
     "ember-source": "~3.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
-    "prember": "^0.2.2"
+    "prember": "^0.2.2",
+    "prember-sitemap-generator": "^0.0.3"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
