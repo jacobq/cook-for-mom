@@ -9,6 +9,11 @@ module.exports = function(defaults) {
       'importBootstrapFont': false,
       'importBootstrapCSS': false,
       'insertEmberWormholeElementToDom': false
+    },
+    prember: {
+      urls: [
+        '/'
+      ]
     }
   });
 
