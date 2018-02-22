@@ -1,7 +1,8 @@
 # cook-for-mom
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+cookformom.com is an online course that helps beginner and intermediate home cooks learn to prepare a 3-course meal for Mother's Day 2018.
+
+All code shared publicly on Github is intended to be licensed under the MIT license. All course material (copy, recipes, videos, etc) will be considered copyrighted materials. A `LICENSE` file will be published soon.
 
 ## Prerequisites
 
