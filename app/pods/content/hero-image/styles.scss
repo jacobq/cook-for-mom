@@ -1,0 +1,38 @@
+& {
+  height: calc(100vh - var(--nav-height));
+  position: relative;
+
+  background-image: url('/assets/images/hero.jpg'); // current img from https://www.shutterstock.com/image-photo/young-mom-cooking-kitchen-little-baby-474857146?src=bLnLxJuvbU83EEz02R35yw-1-0
+  background-size: cover;
+}
+
+> aside {
+  position: absolute;
+  bottom: 4rem;
+  right: 2rem;
+  width: 800px;
+
+  header {
+    text-align: right;
+  }
+
+  main {
+    float: right;
+    background: white;
+    width: 500px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  button, label > input {
+    display: block;
+  }
+
+  h2, button, footer {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}

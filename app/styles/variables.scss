@@ -1,0 +1,5 @@
+$nav-height: 2rem;
+
+:root {
+  --nav-height: $nav-height; // n.b. needed for `calc(...)`s
+}
