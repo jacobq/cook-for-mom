@@ -46,7 +46,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+This site is hosted w Firebase Hosting @ cookformom.com, and is deployed with ember-cli-deploy:
+
+```bash
+ember deploy production
+```
+
+Check [e-cli-deploy-firebase-hosting](https://www.npmjs.com/package/ember-cli-deploy-firebase) for CI instructions.
 
 ## Further Reading / Useful Links
 
