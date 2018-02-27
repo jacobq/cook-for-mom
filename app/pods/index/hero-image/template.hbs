@@ -1,24 +1,32 @@
 <aside>
   <header>
-    <h1> This Mother's Day, it's time you feed her. </h1>
+    <h1 class='display-3'>
+      This Mother's Day, <br />
+      <em>you</em> feed <em>her</em>.
+    </h1>
   </header>
 
   <main>
-    <h2> Get tested meal plans mom will love, with step-by-step instructions for everything from shopping to cooking to serving. </h2>
+    <h2 class='lead'>
+      Get a gourmet meal plan mom will love, <br />
+      plus detailed lessons for everything <br />
+      from shopping to cooking to serving. <br />
+    </h2>
 
     <form>
       <fieldset>
         <label>
-          Email:
+          <small>Email:</small>
           <input type='email' placeholder='julias.child@cooking.com'>
         </label>
 
+        {{! todo: disable unless filled in + show CSS tooltip }}
         <button type='button'> Get Free Meal Plan </button>
       </fieldset>
     </form>
 
-    <footer>
-      100% private; your email will not be sold.
-    </footer>
+    <p><small>
+      100% private; your information is not for sale.
+    </small></p>
   </main>
 </aside>

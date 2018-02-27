@@ -22,15 +22,11 @@
     width: 500px;
   }
 
-  h2 {
-    font-size: 1.5rem;
-  }
-
   button, label > input {
     display: block;
   }
 
-  h2, button, footer {
+  h2, button, p {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
