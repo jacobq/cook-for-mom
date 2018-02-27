@@ -1,17 +1,96 @@
 {{index/hero-image}}
 {{application/nav-bar tagName='nav' class='container-fluid'}}
 
-{{index/info-menu tagName='section' class='info'}}
-{{index/objection-experience tagName='section' class='objection'}}
+{{#index/section-info as |info|}}
+  {{#info.title}} Menu {{/info.title}}
+  {{#info.lead}} Impress Mom with a 3-course, gourmet meal: {{/info.lead}}
 
-{{index/info-outline tagName='section' class='info'}}
-{{index/objection-diet tagName='section' class='objection'}}
+  <ul>
+    <li> Purple potatoes with pickled cabbage and crema </li>
+    <li> Salmorejo (rustic Spanish tomato soup) garnished with eggs, breadcrumbs, and ham </li>
+    <li> Homemade tortilla with roasted pork shoulder or cauliflower, pickled jalapenos, jicama, cotilla cheese, and pico de gallo </li>
+  </ul>
+{{/index/section-info}}
 
-{{index/info-requirements tagName='section' class='info'}}
-{{index/objection-solo tagName='section' class='objection'}}
+{{#index/section-objection as |objection|}}
+  {{#objection.question}} Not yet comfortable scrambling an egg? {{/objection.question}}
+  {{#objection.answer}} No matter your experience -- kitchen zero or culinary hero -- our tested recipes and 6-week lesson plan will help cooks of all levels build (or brush up on!) the knowledge, skills, and confidence you'll need for a lovely meal. {{/objection.answer}}
+{{/index/section-objection}}
 
-{{index/info-social tagName='section' class='info'}}
-{{index/objection-time tagName='section' class='objection'}}
+{{#index/section-info as |info|}}
+  {{#info.title}} Course Outline {{/info.title}}
+  {{#info.lead}} In the 6 weeks leading up to Mother's Day, you will learn: {{/info.lead}}
 
-{{index/about-us tagName='section' class='container-fluid'}}
+  <ul>
+    <li> Knife skills, including chopping, dicing, and basic safety </li>
+    <li> 3 common techniques for cooking proteins </li>
+    <li> Where + how to shop for ingredients</li>
+    <li> How to use cooking by-products and "waste" to run a budget-friendly, eco-conscious, "continuous" kitchen </li>
+    <li> What cooking times <em>actually</em> mean </li>
+    <li> The strategies real chefs use when planning &amp; presenting tasty, instagrammable meals </li>
+    <li> + much, much more! </li>
+  </ul>
+{{/index/section-info}}
+
+{{#index/section-objection as |objection|}}
+  {{#objection.question}} Is Mom vegan? Need a gluten-free option? {{/objection.question}}
+  {{#objection.answer}} All lessons will focus on building your knowledge and skills, and will suggest modifications for popular diets. Your Mother's Day recipes will come with inline notes for vegetarian &amp; vegan options. {{/objection.answer}}
+{{/index/section-objection}}
+
+{{#index/section-info as |info|}}
+  {{#info.title}} Prerequisites {{/info.title}}
+  {{#info.lead}} While the course + final menu are designed to be achievable in just about any kitchen, you will need: {{/info.lead}}
+
+  <ul>
+    {{! todo affiliate? }}
+    <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
+    <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
+    <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
+    <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple one</a> (though a can of Pringles will do!)</li>
+  </ul>
+  <p><small>If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca". For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.</small></p>
+
+  <h4>useful extras</h4>
+  <p> If you're confident making some extra investments in your kitchen, we also recommend picking up: </p>
+  <ul>
+    <li>A knife sharpener</li>
+    {{! todo: confirm which with corey}}
+    <li>A food processor / blender / immersion blender</li>
+    {{! todo: confirm remaining items}}
+  </ul>
+{{/index/section-info}}
+
+{{#index/section-objection as |objection|}}
+  {{#objection.question}} Does cooking for one seem like a waste? {{/objection.question}}
+  {{#objection.answer}} We'll show you how to use by-products like chicken bones to run a continuous kitchen, and how reusing and remixing your leftovers can add variety to your diet. {{/objection.answer}}
+{{/index/section-objection}}
+
+{{#index/section-info as |info|}}
+  {{#info.title}} A Cooking Community {{/info.title}}
+  {{#info.lead}} Cooking is best done with peers, which is why you will find us on: {{/info.lead}}
+
+  <ul>
+    <li>Facebook, in the <a href='https://www.facebook.com/groups/193718594710769'>Cook For Mom group</a></li>
+    <li>Reddit, at <a href='https://reddit.com/r/cookformom'>/r/cookformom</a></li>
+    <li>Instagram, with the hashtag <a href='https://www.instagram.com/explore/tags/cookformom/'>#cookformom</a></li>
+    <li>Twitter, with the hashtag <a href='https://twitter.com/search?q=%23cookformom'>#cookformom</a></li>
+  </ul>
+{{/index/section-info}}
+
+{{#index/section-objection as |objection|}}
+  {{#objection.question}} Worried about the time commitment? {{/objection.question}}
+  {{#objection.answer}} You can spend as little as one afternoon per week learning to cook and still have time left over for some Netflix. Plus, our digital course is designed for your modern schedule, where a weekly 6pm class might not be a flexible enough solution. {{/objection.answer}}
+{{/index/section-objection}}
+
+{{#index/section-info as |info|}}
+  {{#info.title}} About Us {{/info.title}}
+  {{#info.lead}} We created Cook For Mom because... {{/info.lead}}
+
+  <h4>Corey Mintz</h4>
+  <p>Bio bio bio</p>
+
+  <h4>Aidan Nulman</h4>
+  <p>Bio bio bio</p>
+{{/index/section-info}}
+
 {{! index/press-testimonials? }}
