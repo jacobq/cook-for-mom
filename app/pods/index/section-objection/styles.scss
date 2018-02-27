@@ -1,5 +1,6 @@
 & {
-  @extend .container-fluid;
-
   background: aqua;
+
+  padding-top: $nav-height;
+  padding-bottom: $nav-height;
 }
