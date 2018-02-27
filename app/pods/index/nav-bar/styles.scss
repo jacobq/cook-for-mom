@@ -5,8 +5,12 @@
   z-index: 1;
 
   height: $nav-height;
-  line-height: $nav-height;
+  overflow: hidden;
 
   background: blue;
   color: white;
+}
+
+.nav-link.active:not([href='#']) {
+  text-decoration: underline;
 }
