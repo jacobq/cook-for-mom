@@ -3,6 +3,7 @@
   @extend .justify-content-end;
   @extend .align-items-end;
 
+  min-height: 500px;
   height: calc(100vh - var(--nav-height));
   position: relative;
 
@@ -10,6 +11,11 @@
   background-size: cover;
   background-position: center;
   background-repeat: none;
+
+  @include media-breakpoint-down(sm) {
+    min-height: calc(100vw / 2);
+    height: 50vh;
+  }
 }
 
 > aside {
@@ -17,10 +23,6 @@
   margin-right: 2rem;
 
   h1 {
-    font-family: "hooligan-jf";
-    font-size: 7rem;
-    line-height: 7.5rem;
-
     font-family: "baileywick-jf-gothic";
     font-size: 5rem;
     line-height: 5.5rem;
@@ -30,90 +32,19 @@
 
     text-align: right;
     margin-bottom: 2rem;
+
+    @include media-breakpoint-down(sm) {
+      font-size: calc(2.5rem + (5 - 2.5) * (100vw - 25rem) / (48 - 25));
+      line-height: calc(3rem + (6 - 3) * (100vw - 25rem) / (48 - 25));
+      margin-bottom: calc(0rem + (2 - 0) * (100vw - 25rem) / (48 - 25));
+    }
   }
 
   form, main {
     width: 450px;
-    padding: 1rem 1.5rem;
     float: right;
 
-    background: $color-gainsboro;
     border-radius: 8px;
     box-shadow: 0 0 8px $color-sienna;
-  }
-
-  input {
-    padding-right: 0;
-
-    &.form-control {
-      border-color: $secondary;
-
-      &:focus {
-        box-shadow: none;
-        border-color: $dark;
-      }
-    }
-  }
-
-  button {
-    outline: none;
-    color: white;
-
-    &.btn-link {
-      padding: 0;
-    }
-  }
-
-  h2, p, ul {
-    margin-left: auto;
-    margin-right: auto;
-
-    font-family: "omnes-pro";
-    text-align: center;
-  }
-
-  h2 {
-    font-weight: 200;
-    font-size: 1.5rem;
-
-    em {
-      font-style: normal;
-      font-weight: 400;
-    }
-  }
-
-  fieldset, h2 + p {
-    margin: 1.5rem 0 .5rem;
-  }
-
-  ul {
-    margin: 1rem 0 0;
-  }
-
-  li + li {
-    margin-left: .75rem;
-  }
-
-  p {
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    button {
-      font-size: inherit;
-      margin: 0 0.5rem;
-    }
-  }
-
-  small {
-    line-height: .25rem;
-  }
-
-  img {
-    max-height: 2rem;
-
-    &[src='/assets/images/social/instagram.png'] {
-      opacity: 0.5;
-    }
   }
 }

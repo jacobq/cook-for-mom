@@ -1,12 +1,22 @@
-{{index/hero-image
-  didSubmit=application.didSubmit
-  onSubmit=application.onSubmit
-  onFormShow=(action (mut isHeroFormShowing) true)
-  onFormHide=(action (mut isHeroFormShowing) false)}}
+{{index/hero-image}}
+
+{{#ember-wormhole to='hero-form-container' renderInPlace=isBootstrapSmDown}}
+  {{#index/hero-form
+    didSubmit=(readonly application.didSubmit)
+    onSubmit=(action application.onSubmit) as |form|}}
+    {{#unless form.didSubmit}}
+      {{index/hero-form/form form
+        onViewportEntered=(action (mut isHeroFormShowing) true)
+        onViewportExited=(action (mut isHeroFormShowing) false)}}
+    {{else}}
+      {{index/hero-form/thanks form
+        reset=(action (mut form.didSubmit) false)}}
+    {{/unless}}
+  {{/index/hero-form}}
+{{/ember-wormhole}}
 
 {{index/nav-bar
-  didSubmit=application.didSubmit
-  isHeroFormShowing=isHeroFormShowing}}
+  isShowingEmailButton=(not (or application.didSubmit isHeroFormShowing))}}
 
 {{#index/section-info id='your-meal' as |info|}}
   {{#info.title}} Your Meal {{/info.title}}

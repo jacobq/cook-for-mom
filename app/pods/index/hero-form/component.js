@@ -2,5 +2,10 @@ import Component from '@ember/component';
 
 export default Component.extend({
   didSubmit: false,
-  onSubmit() {}
+  onSubmit() {},
+
+  submit(event) {
+    this.get('onSubmit')(event);
+    this.set('didSubmit', true);
+  }
 });

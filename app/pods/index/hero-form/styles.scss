@@ -1,22 +1,50 @@
-> form, > main {
-  width: 450px;
-  padding: 1rem 1.5rem;
-  float: right;
-
+& {
+  width: 100%;
   background: $color-gainsboro;
-  border-radius: 8px;
-  box-shadow: 0 0 8px $color-sienna;
+}
+
+> form, > main {
+  padding: 1rem 1.5rem;
+  background: $color-gainsboro;
+
+  @include media-breakpoint-down(sm) {
+    border-top: 1px solid $color-sienna;
+  }
 }
 
 input {
   padding-right: 0;
 
   &.form-control {
-    border-color: $secondary;
+    border-color: $primary;
 
     &:focus {
       box-shadow: none;
       border-color: $dark;
+    }
+  }
+}
+
+.input-group {
+  @include media-breakpoint-down(sm) {
+    input.form-control, button {
+      width: 70%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input.form-control:not(:last-child),
+    > .input-group-append > .btn {
+      @include border-radius($input-border-radius);
+    }
+
+    .input-group-append {
+      margin-left: initial;
+    }
+
+    button {
+      margin-top: .5rem;
     }
   }
 }
@@ -41,6 +69,10 @@ h2, p, ul {
 h2 {
   font-weight: 200;
   font-size: 1.5rem;
+
+  @include media-breakpoint-down(sm) {
+    font-size: calc(1.25rem + (1.5 - 1.25) * (100vw - 25rem) / (48 - 25));
+  }
 
   em {
     font-style: normal;
