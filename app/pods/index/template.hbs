@@ -1,5 +1,12 @@
-{{index/hero-image}}
-{{index/nav-bar}}
+{{index/hero-image
+  didSubmit=application.didSubmit
+  onSubmit=application.onSubmit
+  onFormShow=(action (mut isHeroFormShowing) true)
+  onFormHide=(action (mut isHeroFormShowing) false)}}
+
+{{index/nav-bar
+  didSubmit=application.didSubmit
+  isHeroFormShowing=isHeroFormShowing}}
 
 {{#index/section-info id='your-meal' as |info|}}
   {{#info.title}} Your Meal {{/info.title}}
