@@ -4,6 +4,8 @@ export default Component.extend({
   tagName: 'nav',
   classNames: ['container-fluid'],
 
+  isShowingEmailButton: false,
+
   didInsertElement() {
     setActiveAnchor.call(this);
     this._anchorChangeListener = setActiveAnchor.bind(this);
