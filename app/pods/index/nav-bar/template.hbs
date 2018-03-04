@@ -4,10 +4,6 @@
   </li>
 
   <li class='nav-item'>
-    <a class='nav-link' href='#'> Cook For Mom </a>
-  </li>
-
-  <li class='nav-item'>
     <a class='nav-link' href='#your-meal'> Your Meal </a>
   </li>
 
@@ -27,7 +23,9 @@
     <a class='nav-link' href='#about-us'> About Us </a>
   </li>
 
-  <li class='nav-item hidden-sm-down ml-auto'>
-    <button type='button'> Sign me up! </button>
-  </li>
+  {{#unless (or didSubmit isHeroFormShowing)}}
+    <li class='nav-item hidden-sm-down ml-auto'>
+      <button type='button'> Sign me up! </button>
+    </li>
+  {{/unless}}
 </ul>
