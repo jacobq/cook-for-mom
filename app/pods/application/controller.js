@@ -5,8 +5,9 @@ export default Controller.extend({
   router: service(),
   didSubmit: false,
 
-  onSubmit(event) {
+  onSubmit(/* event */) {
     window.alert('modal');
-    this.set('didSubmit', true);
+    this.getWithDefault('application', this)
+      .set('didSubmit', true);
   }
 });
