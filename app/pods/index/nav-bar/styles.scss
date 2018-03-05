@@ -7,8 +7,16 @@
   height: $nav-height;
   overflow: hidden;
 
-  background: blue;
-  color: white;
+  background: lighten($color-khaki, 25%);
+  font-weight: 300;
+}
+
+a.nav-link {
+  color: $dark;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .nav-link.active:not([href='#']) {
