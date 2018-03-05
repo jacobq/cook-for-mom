@@ -1,11 +1,8 @@
 & {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: -1px;
   z-index: 1;
-
-  height: $nav-height;
-  overflow: hidden;
 
   background: lighten($color-khaki, 25%);
   font-weight: 300;
@@ -21,4 +18,8 @@ a.nav-link {
 
 .nav-link.active:not([href='#']) {
   text-decoration: underline;
+}
+
+li {
+  padding: 0.5rem 0rem;
 }

@@ -18,96 +18,107 @@
 {{index/nav-bar
   isShowingEmailButton=(not (or application.didSubmit isHeroFormShowing))}}
 
-{{#index/section-info id='your-meal' as |info|}}
-  {{#info.title}} Your Meal {{/info.title}}
-  {{#info.lead}} Impress Mom with a 3-course, gourmet meal: {{/info.lead}}
-
-  <ul>
-    <li> Purple potatoes with pickled cabbage and crema </li>
-    <li> Salmorejo (rustic Spanish tomato soup) garnished with eggs, breadcrumbs, and ham </li>
-    <li> Homemade tortilla with roasted pork shoulder or cauliflower, pickled jalapenos, jicama, cotilla cheese, and pico de gallo </li>
-  </ul>
-{{/index/section-info}}
-
-{{#index/section-objection as |objection|}}
+{{#index/section-objection id='menu' childrenClass='col-md-6 offset-md-1' as |objection|}}
   {{#objection.question}} Not yet comfortable scrambling an egg? {{/objection.question}}
   {{#objection.answer}} No matter your experience -- kitchen zero or culinary hero -- our tested recipes and 6-week lesson plan will help cooks of all levels build (or brush up on!) the knowledge, skills, and confidence you'll need for a delicious meal. {{/objection.answer}}
 {{/index/section-objection}}
 
-{{#index/section-info id='course-outline' as |info|}}
-  {{#info.title}} Course Outline {{/info.title}}
-  {{#info.lead}} In the 6 weeks leading up to Mother's Day, you will learn: {{/info.lead}}
+{{#index/section-info as |info|}}
+  {{#info.title}} Menu {{/info.title}}
+  {{#info.lead}} Impress Mom with a 3-course, gourmet meal: {{/info.lead}}
 
-  <ul>
-    <li> Knife skills, including chopping, dicing, and basic safety </li>
-    <li> 3 common techniques for cooking proteins like fish, chicken, and tofu </li>
-    <li> Where and how to shop for ingredients</li>
-    <li> How to use cooking by-products and "waste" to run a budget-friendly, eco-conscious, "continuous" kitchen </li>
-    <li> What cooking times <em>actually</em> mean </li>
-    <li> The strategies real chefs use when planning and presenting tasty, Instagrammable meals </li>
-    <li> And much, much more! </li>
-  </ul>
+  <div class='row bg-none'>
+    {{#info.content tagName='ul' class='col-md-5 offset-md-7'}}
+      <li> Purple potatoes with pickled cabbage and crema </li>
+      <li> Salmorejo (rustic Spanish tomato soup) garnished with eggs, breadcrumbs, and ham </li>
+      <li> Tacos — homemade tortilla with roasted pork shoulder or cauliflower, pickled jalapenos, jicama, cotija cheese, and pico de gallo </li>
+      <li> Bonus! Fresh-Baked Ginger Molasses Cookies </li>
+    {{/info.content}}
+  </div>
 {{/index/section-info}}
 
-{{#index/section-objection as |objection|}}
+{{#index/section-objection id='six-free-lessons' childrenClass='col-md-6 offset-md-4' as |objection|}}
   {{#objection.question}} Is Mom vegan? Need a gluten-free option? {{/objection.question}}
   {{#objection.answer}} Each lesson focuses on building your knowledge and skills, and includes suggested modifications for popular diets. Your Mother's Day recipes will come with inline notes for vegetarian & vegan options. {{/objection.answer}}
 {{/index/section-objection}}
 
-{{#index/section-info id='kitchen-requirements' as |info|}}
-  {{#info.title}} Kitchen Requirements {{/info.title}}
-  {{#info.lead}} While the course + final menu are designed to be achievable in just about any kitchen, you will need: {{/info.lead}}
+{{#index/section-info as |info|}}
+  {{#info.title}} Six Free Lessons {{/info.title}}
+  {{#info.lead}} In the weeks leading up to Mother's Day, you will learn: {{/info.lead}}
 
-  <ul>
-    {{! todo affiliate? }}
-    <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
-    <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
-    <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
-    <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a can of Pringles will do!)</li>
-  </ul>
-  <p><small>If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca". For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.</small></p>
-
-  <h4>Useful Extras</h4>
-  <p> If you're confident making some extra investments in your kitchen, we also recommend picking up: </p>
-  <ul>
-    <li>A knife sharpener</li>
-    {{! todo: confirm which with corey}}
-    <li>A food processor / blender / immersion blender</li>
-    {{! todo: confirm remaining items}}
-  </ul>
+  {{#info.content tagName='ul' class='col-md-6'}}
+    <li> Knife skills, including chopping, dicing, and basic safety </li>
+    <li> 3 common techniques for cooking proteins like fish, chicken, and tofu </li>
+    <li> Where, how, and why to shop for the best ingredients you can get</li>
+    <li> How to use your cooking by-products to run a budget-friendly, eco-conscious, continuous kitchen </li>
+    <li> What cooking times <em>actually</em> mean </li>
+    <li> The strategies real chefs use when planning and presenting tasty, Instagrammable meals </li>
+    <li> And much, much more! </li>
+  {{/info.content}}
 {{/index/section-info}}
 
-{{#index/section-objection as |objection|}}
-  {{#objection.question}} Does cooking for one seem like a waste? {{/objection.question}}
-  {{#objection.answer}} We'll show you how to use by-products like chicken bones to run a continuous kitchen, and how reusing and remixing your leftovers can add variety to your diet. {{/objection.answer}}
-{{/index/section-objection}}
-
-{{#index/section-info id='cooking-community' as |info|}}
-  {{#info.title}} A Cooking Community {{/info.title}}
-  {{#info.lead}} Cooking is best done with others, which is why you will find us on: {{/info.lead}}
-
-  <ul>
-    <li>Facebook, in the <a href='https://www.facebook.com/groups/193718594710769'>Cook For Mom group</a></li>
-    <li>Reddit, at <a href='https://reddit.com/r/cookformom'>/r/cookformom</a></li>
-    <li>Instagram, with the hashtag <a href='https://www.instagram.com/explore/tags/cookformom/'>#cookformom</a></li>
-    <li>Twitter, with the hashtag <a href='https://twitter.com/search?q=%23cookformom'>#cookformom</a></li>
-  </ul>
-{{/index/section-info}}
-
-{{#index/section-objection as |objection|}}
+{{#index/section-objection id='about-us' childrenClass='col-md-6 offset-md-3' as |objection|}}
   {{#objection.question}} Worried about the time commitment? {{/objection.question}}
   {{#objection.answer}} You will only need 2 - 4 hours per week to keep up with our weekly lessons; your full Mother's Day meal will need about 6 hours you can split between two days. Plus, our digital course is designed for your modern schedule, where a weekly 6pm class might not be a flexible enough solution. {{/objection.answer}}
 {{/index/section-objection}}
 
-{{#index/section-info id='about-us' as |info|}}
+{{#index/section-info as |info|}}
   {{#info.title}} About Us {{/info.title}}
-  {{#info.lead}} We created Cook For Mom because... {{/info.lead}}
 
-  <h4>Corey Mintz</h4>
-  <p>Bio bio bio</p>
+  <div class='row bg-none'>
+    <div class='col-md-6 d-flex flex-column'>
+      {{#info.lead}} Corey Mintz {{/info.lead}}
+      {{#info.content}} Bio bio bio {{/info.content}}
+    </div>
 
-  <h4>Aidan Nulman</h4>
-  <p>Bio bio bio</p>
+    <div class='col-md-6 d-flex flex-column'>
+      {{#info.lead}} Aidan Nulman {{/info.lead}}
+      {{#info.content}} Aidan is a serial founder and fullstack developer based in Toronto, Canada who wants to help cooks build confidence as they acquire new skills in the kitchen. {{/info.content}}
+    </div>
+  </div>
 {{/index/section-info}}
 
+{{#index/section-objection id='what-you-need' childrenClass='col-md-6 offset-md-6' as |objection|}}
+  {{#objection.question}} Does running a kitchen for one have to be wasteful? {{/objection.question}}
+  {{#objection.answer}} We'll show you how to use by-products like chicken bones to run a continuous kitchen, and how reusing and remixing your leftovers can add variety to your diet. {{/objection.answer}}
+{{/index/section-objection}}
+
+{{#index/section-info as |info|}}
+  {{#info.title}} What You'll Need {{/info.title}}
+
+  {{#info.lead}} The Basics: {{/info.lead}}
+  {{#info.content tagName='div' class='col-md-10 offset-md-1'}}
+    <ul>
+      {{! todo affiliate? }}
+      <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
+      <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
+      <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
+      <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a can of Pringles will do!)</li>
+    </ul>
+
+    <p><small>If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca". For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.</small></p>
+  {{/info.content}}
+
+  {{#info.lead}} Useful Extras: {{/info.lead}}
+  {{#info.content tagName='div' class='col-md-10 offset-md-1'}}
+    <p> If you're confident making some extra investments in your kitchen, we also recommend picking up: </p>
+    <ul>
+      <li>A knife sharpener</li>
+      {{! todo: confirm which with corey}}
+      <li>A food processor / blender / immersion blender</li>
+      {{! todo: confirm remaining items}}
+    </ul>
+  {{/info.content}}
+{{/index/section-info}}
+
+{{#index/section-info id='cooking-community' as |info|}}
+  {{#info.title}} A Cooking Community {{/info.title}}
+  {{#info.lead}} Cooking is best done with others, which is why you will find us on: {{/info.lead}}
+  {{#info.content tagName='ul'}}
+    <li>Facebook, in the <a href='https://www.facebook.com/groups/193718594710769'>Cook For Mom group</a></li>
+    <li>Reddit, at <a href='https://reddit.com/r/cookformom'>/r/cookformom</a></li>
+    <li>Instagram, with the hashtag <a href='https://www.instagram.com/explore/tags/cookformom/'>#cookformom</a></li>
+    <li>Twitter, with the hashtag <a href='https://twitter.com/search?q=%23cookformom'>#cookformom</a></li>
+  {{/info.content}}
+{{/index/section-info}}
 {{! index/press-testimonials? }}

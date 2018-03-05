@@ -1,11 +1,3 @@
 > section {
   @extend .container-fluid;
-
-  &.objection {
-    background: aqua;
-  }
-
-  &.info {
-    background: lighter-grey;
-  }
 }

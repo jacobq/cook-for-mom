@@ -1,6 +1,18 @@
 & {
-  background: lighter-grey;
+  background: lighten($color-khaki, 20%);
 
-  padding-top: $nav-height;
-  padding-bottom: $nav-height;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+
+  li::before {
+    content: '-';
+  }
+
+  li {
+    padding: .5rem 0;
+  }
 }

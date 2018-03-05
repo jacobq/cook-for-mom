@@ -1,6 +1,15 @@
 & {
-  background: aqua;
+  background: lighten($color-gainsboro, 10%);
 
-  padding-top: $nav-height;
-  padding-bottom: $nav-height;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+h4 {
+  font-family: $font-family-heading;
+  font-weight: 200;
+}
+
+p {
+  color: $color-black;
 }

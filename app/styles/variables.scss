@@ -1,4 +1,4 @@
-$nav-height: 2.5rem;
+$nav-height: 3.5rem;
 
 $color-khaki: #ECC272;
 $color-sienna: #946039;
@@ -11,6 +11,8 @@ $secondary: $color-khaki;
 $dark: $color-black;
 
 $font-family-base: "rooney-web";
+$font-family-heading: "omnes-pro";
+$font-family-accent: "baileywick-jf-gothic";
 
 :root {
   --nav-height: $nav-height; // n.b. needed for `calc(...)`s

@@ -1,31 +1,23 @@
-<ul class='container nav flex-column flex-md-row'>
-  <li class='nav-item d-md-none'>
-    Mobile Nav; includes signup button + otherwise expands
+<ul class='container nav justify-content-between justify-content-md-start'>
+  <li class='nav-item'>
+    <a class='nav-link' href='#menu'> Menu </a>
   </li>
 
   <li class='nav-item'>
-    <a class='nav-link' href='#your-meal'> Your Meal </a>
-  </li>
-
-  <li class='nav-item'>
-    <a class='nav-link' href='#course-outline'> Course Outline </a>
-  </li>
-
-  <li class='nav-item'>
-    <a class='nav-link' href='#kitchen-requirements'> Kitchen Requirements </a>
-  </li>
-
-  <li class='nav-item'>
-    <a class='nav-link' href='#cooking-community'> Cooking Community </a>
+    <a class='nav-link' href='#six-free-lessons'> Six Free Lessons </a>
   </li>
 
   <li class='nav-item'>
     <a class='nav-link' href='#about-us'> About Us </a>
   </li>
 
+  <li class='nav-item'>
+    <a class='nav-link' href='#what-you-need'> What You'll Need </a>
+  </li>
+
   {{#if isShowingEmailButton}}
-    <li class='nav-item hidden-sm-down ml-auto'>
-      <button type='button'> Sign me up! </button>
+    <li class='nav-item ml-auto'>
+      <button class='btn bg-dark text-white' type='button'> Sign me up! </button>
     </li>
   {{/if}}
 </ul>
