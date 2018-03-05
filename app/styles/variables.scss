@@ -10,6 +10,8 @@ $primary: $color-rosy-brown;
 $secondary: $color-khaki;
 $dark: $color-black;
 
+$font-family-base: "rooney-web";
+
 :root {
   --nav-height: $nav-height; // n.b. needed for `calc(...)`s
 }
