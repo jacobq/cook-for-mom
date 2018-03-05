@@ -3,6 +3,10 @@ import Route from '@ember/routing/route';
 export default Route.extend({
   headTags() {
     return [{
+      type: 'title',
+      tagId: 'title',
+      content: 'Cook For Mom'
+    }, {
       type: 'meta',
       tagId: 'meta-fb-app_id',
       attrs: {
@@ -64,6 +68,13 @@ export default Route.extend({
       attrs: {
         property: 'og:description',
         content: 'Get a free gourmet meal plan, plus six free weekly lessons designed for your success.'
+      }
+    }, {
+      type: 'meta',
+      tagid: 'meta-description',
+      attrs: {
+        name: 'description',
+        content: 'Get a free gourmet meal plan, plus six free weekly lessons designed for your success. This Mother\'s Day, you feed her.'
       }
     }];
   }
