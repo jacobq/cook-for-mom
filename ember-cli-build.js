@@ -15,6 +15,9 @@ module.exports = function(defaults) {
       urls: [
         '/'
       ]
+    },
+    sourcemaps: {
+      enabled: true
     }
   });
 
