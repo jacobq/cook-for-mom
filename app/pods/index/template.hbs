@@ -25,7 +25,7 @@
 
 {{#index/section-info as |info|}}
   {{#info.title}} Menu {{/info.title}}
-  {{#info.lead}} Impress Mom with a 3-course, gourmet meal: {{/info.lead}}
+  {{#info.lead}} Impress Mom with this deceptively simple 3-course, gourmet meal: {{/info.lead}}
 
   <div class='row bg-none'>
     {{#info.content tagName='ul' class='col-md-5 offset-md-7'}}
@@ -44,17 +44,23 @@
 
 {{#index/section-info as |info|}}
   {{#info.title}} Six Free Lessons {{/info.title}}
-  {{#info.lead}} In the weeks leading up to Mother's Day, you will learn: {{/info.lead}}
 
-  {{#info.content tagName='ul' class='col-md-6'}}
-    <li> Knife skills, including chopping, dicing, and basic safety </li>
-    <li> 3 common techniques for cooking proteins like fish, chicken, and tofu </li>
-    <li> Where, how, and why to shop for the best ingredients you can get</li>
-    <li> How to use your cooking by-products to run a budget-friendly, eco-conscious, continuous kitchen </li>
-    <li> What cooking times <em>actually</em> mean </li>
-    <li> The strategies real chefs use when planning and presenting tasty, Instagrammable meals </li>
-    <li> And much, much more! </li>
-  {{/info.content}}
+  <div class='row'>
+    <div class='col-md-6'>
+      {{#info.lead}} In the weeks leading up to Mother's Day, you will learn: {{/info.lead}}
+      {{#info.content tagName='ul'}}
+        <li> Knife skills, including chopping, dicing, and basic safety </li>
+        <li> 3 common techniques for cooking proteins like fish, chicken, and tofu </li>
+        <li> Where, how, and why to shop for the best ingredients you can get</li>
+        <li> How to use your cooking by-products to run a budget-friendly, eco-conscious, continuous kitchen </li>
+        <li> What cooking times <em>actually</em> mean </li>
+        <li> The strategies real chefs use when planning and presenting tasty, Instagrammable meals </li>
+        <li> And much, much more! </li>
+      {{/info.content}}
+    </div>
+
+    {{course-calendar class='col-md-6 col-lg-5 offset-lg-1 d-flex flex-column'}}
+  </div>
 {{/index/section-info}}
 
 {{#index/section-objection id='about-us' childrenClass='col-md-6 offset-md-3' as |objection|}}
@@ -93,7 +99,7 @@
       <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
       <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
       <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
-      <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a can of Pringles will do!)</li>
+      <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a wine bottle will do!)</li>
     </ul>
 
     <p><small>If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca". For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.</small></p>
@@ -104,9 +110,7 @@
     <p> If you're confident making some extra investments in your kitchen, we also recommend picking up: </p>
     <ul>
       <li>A knife sharpener</li>
-      {{! todo: confirm which with corey}}
       <li>A food processor / blender / immersion blender</li>
-      {{! todo: confirm remaining items}}
     </ul>
   {{/info.content}}
 {{/index/section-info}}
