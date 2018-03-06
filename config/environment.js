@@ -32,7 +32,11 @@ module.exports = function(environment) {
         trace: environment === 'development',
         sendHitTask: environment !== 'development'
       }
-    }]
+    }],
+
+    sentry: {
+      dsn: 'https://7ab1a2d634f84f8f8cceabc074249391@app.getsentry.com/298920'
+    }
   };
 
   if (environment === 'development') {
