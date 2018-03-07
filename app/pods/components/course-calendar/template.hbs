@@ -1,13 +1,11 @@
-{{#power-calendar
-  class=(if isAtEarliestMonth 'cal-start' (if isAtLatestMonth 'cal-end'))
-  center=calendarCenter
-  onCenterChange=(action (mut calendarCenter) value='date')as |calendar|}}
-  {{calendar.nav}}
-  {{#calendar.days
-    startOfWeek=1
-    minDate=calendarMin
-    maxDate=calendarMax
-    dayIsDisabled=isDateOutOfRange as |day|}}
-    {{course-calendar/day day}}
-  {{/calendar.days}}
-{{/power-calendar}}
+{{yield (hash
+  min=min
+  max=max
+  center=center
+  lessons=lessons
+  dates=dates
+  activate=(action activate)
+  deactivate=(action deactivate)
+  day=(component dayComponent)
+  dayIsDisabled=isDateOutOfRange
+)}}

@@ -1,3 +1,8 @@
+&.cal-start .ember-power-calendar > nav .ember-power-calendar-nav-control--previous,
+&.cal-end .ember-power-calendar > nav .ember-power-calendar-nav-control--next {
+  visibility: hidden;
+}
+
 .ember-power-calendar {
   display: flex;
   flex-direction: column;
@@ -24,11 +29,6 @@
 
   button, button:focus, button:active {
     outline: none;
-  }
-
-  &.cal-start > nav .ember-power-calendar-nav-control--previous,
-  &.cal-end > nav .ember-power-calendar-nav-control--next {
-    visibility: hidden;
   }
 }
 
@@ -68,19 +68,9 @@
   // todo: resolve non-blocking style issue when navigating back & forward months on ios
   button {
     position: relative;
-    transform: scale(1);
     opacity: 1;
 
     color: $dark;
-
-    transition: transform 0.2s, opacity 0.2s;
-
-    &:hover:not([disabled]) {
-      transform: scale(1.2);
-      z-index: 1;
-
-      cursor: pointer;
-    }
 
     &[disabled] > *, &.ember-power-calendar-day--other-month > * {
       opacity: 0.4;
@@ -95,6 +85,21 @@
       }
     }
   }
+
+  button:not([disabled]) {
+    > * {
+      transition: transform 0.2s, opacity 0.2s;
+      transform: scale(1);
+    }
+
+    &:hover > *, > .sim-hover {
+      transform: scale(1.25);
+      z-index: 1;
+
+      cursor: pointer;
+    }
+  }
+
 
   span {
     position: absolute;

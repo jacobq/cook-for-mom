@@ -64,22 +64,35 @@
   <a class='anchor' id='six-free-lessons' />
   {{#info.title}} Six Free Lessons {{/info.title}}
 
-  <div class='row'>
+  {{#course-calendar class='row' as |calendar|}}
     <div class='col-md-6'>
       {{#info.lead}} In the weeks leading up to Mother's Day, you will learn: {{/info.lead}}
       {{#info.content tagName='ul'}}
-        <li> Knife skills, including chopping, dicing, and basic safety </li>
-        <li> 3 common techniques for cooking proteins like fish, chicken, and tofu </li>
-        <li> Where, how, and why to shop for the best ingredients you can get</li>
-        <li> How to use your cooking by-products to run a budget-friendly, eco-conscious, continuous kitchen </li>
-        <li> What cooking times <em>actually</em> mean </li>
-        <li> The strategies real chefs use when planning and presenting tasty, Instagrammable meals </li>
-        <li> And much, much more! </li>
+        {{#each calendar.lessons as |lesson|}}
+          <li class='i-{{lesson.slug}} {{if lesson.active 'sim-hover'}}'
+            onmouseover={{action calendar.activate lesson}}
+            onmouseout={{action calendar.deactivate lesson}}>
+            {{lesson.description}}
+          </li>
+        {{/each}}
       {{/info.content}}
     </div>
 
-    {{course-calendar class='col-md-6 col-lg-5 offset-lg-1 d-flex flex-column mt-3 mt-md-0'}}
-  </div>
+    <div class='col-md-6 col-lg-5 offset-lg-1 d-flex flex-column mt-3 mt-md-0'>
+      {{#power-calendar
+        center=calendar.center
+        onCenterChange=(action (mut calendar.center) value='date')as |power|}}
+        {{power.nav}}
+        {{#power.days
+          startOfWeek=1
+          minDate=calendar.min
+          maxDate=calendar.max
+          dayIsDisabled=calendar.dayIsDisabled as |day|}}
+          {{course-calendar/day calendar day}}
+        {{/power.days}}
+      {{/power-calendar}}
+    </div>
+  {{/course-calendar}}
 {{/index/section-info}}
 
 {{#index/section-objection childrenClass='col-md-6 offset-md-3' as |objection|}}

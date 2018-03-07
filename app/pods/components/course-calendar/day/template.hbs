@@ -2,7 +2,13 @@
   {{bs-tooltip title='Click here to sign up now and get a free meal plan today!'}}
 {{else if isSpecialDay}}
   {{#if (eq specialDay.type 'activity')}}
-  {{bs-tooltip title=(concat 'Activity; about ' specialDay.value (if (eq specialDay.value 1) 'hr' 'hrs'))}}
+    {{bs-tooltip title=(concat 'Activity; about ' specialDay.value (if (eq specialDay.value 1) 'hr' 'hrs'))}}
+  {{else if (eq specialDay.type 'lesson')}}
+    {{#if specialDay.value.active}}
+      {{bs-tooltip title=specialDay.value.title visible=specialDay.value.active}}
+    {{else}}
+      {{bs-tooltip title=specialDay.value.title}}
+    {{/if}}
   {{else}}
     {{bs-tooltip title=specialDay.value}}
   {{/if}}

@@ -3,63 +3,70 @@ import { computed } from '@ember/object';
 import { bind } from '@ember/runloop';
 import { isPresent } from '@ember/utils';
 
-const SPECIAL_DATES = [
-  { date: '04-02', type: 'lesson', value: 'Week 1: Knife Skills' },
-    { date: '04-05', type: 'activity', value: 1 },
-    { date: '04-06', type: 'activity', value: 1 },
-  { date: '04-09', type: 'lesson', value: 'Week 2: Cooking Proteins' },
-    { date: '04-12', type: 'activity', value: 1 },
-    { date: '04-14', type: 'activity', value: 2 },
-  { date: '04-16', type: 'lesson', value: 'Week 3: How to Shop' },
-    { date: '04-19', type: 'activity', value: 1 },
-    { date: '04-20', type: 'activity', value: 1 },
-    { date: '04-21', type: 'activity', value: 2 },
-  { date: '04-23', type: 'lesson', value: 'Week 4: The Continuous Kitchen' },
-    { date: '04-26', type: 'activity', value: 1 },
-    { date: '04-27', type: 'activity', value: 2 },
-    { date: '04-28', type: 'activity', value: 1 },
-  { date: '04-30', type: 'lesson', value: 'Week 5: Kitchen Timing' },
-    { date: '05-04', type: 'activity', value: 1 },
-    { date: '05-05', type: 'activity', value: 1 },
-  { date: '05-07', type: 'lesson', value: 'Week 6: Meal Prep' },
-    { date: '05-10', type: 'activity', value: 1 },
-    { date: '05-11', type: 'activity', value: 2 },
-    { date: '05-12', type: 'activity', value: 2 },
-  { date: '05-13', type: 'meal', value: 'Mother\'s Day!' },
-];
-
 const Day = Component.extend({
+  classNameBindings: ['specialClass', 'isSimulatingHover:sim-hover'],
+
+  calendar: null,
   day: null,
+
   dayString: computed('day', function() {
     return this.get('day.moment').format('MM-DD');
   }),
 
-  isSpecialDay: computed.bool('specialDay'),
-  specialDay: computed('dayString', function() {
-    return SPECIAL_DATES.findBy('date', this.get('dayString'));
+  specialDay: computed('calendar.dates', 'dayString', function() {
+    return this.get('calendar.dates').findBy('date', this.get('dayString'));
   }),
 
-  didUpdateAttrs() {
-    ensureSpecialHandling.call(this);
-  },
+  isSpecialDay: computed.bool('specialDay'),
+  isSimulatingHover: computed.reads('specialDay.value.active'),
+  specialClass: computed('day.isToday', 'specialDay.type', function() {
+    if (this.get('day.isToday')) {
+      return 'today';
+    } else {
+      let type = this.get('specialDay.type');
+
+      switch (type) {
+        case 'activity': return `${type}-${this.get('specialDay.value')}`;
+        default: return type;
+      }
+    }
+  }),
 
   didInsertElement() {
-    this._onClick = bind(this, onClick);
+    let { calendar, specialDay } = this.getProperties('calendar', 'specialDay');
 
-    ensureSpecialHandling.call(this);
-    this.element
-      .addEventListener('click', this._onClick, true);
+    this._onClick = bind(this, onClick);
+    this.element.addEventListener('click', this._onClick, true);
+
+    if (isPresent(specialDay) && specialDay.type === 'lesson') {
+      let { value: lesson } = specialDay;
+
+      this._onMouseOver = bind(this, onMouseOver, calendar, lesson);
+      this._onMouseOut = bind(this, onMouseOut, calendar, lesson);
+
+      this.element.addEventListener('mouseover', this._onMouseOver, true);
+      this.element.addEventListener('mouseout', this._onMouseOut, true);
+    }
   },
 
   willDestroyElement() {
-    this.element
-      .removeEventListener('click', this._onClick, true);
+    this.element.removeEventListener('click', this._onClick, true);
     this._onClick = null;
+
+    if (this._onMouseOver) {
+      this.element.removeEventListener('mouseover', this._onMouseOver, true);
+      this._onMouseOver = null;
+    }
+
+    if (this._onMouseOut) {
+      this.element.removeEventListener('mouseout', this._onMouseOut, true);
+      this._onMouseOut = null;
+    }
   }
 });
 
 Day.reopenClass({
-  positionalParams: ['day']
+  positionalParams: ['calendar', 'day']
 });
 
 export default Day;
@@ -70,15 +77,24 @@ function onClick(/* event */) {
   }
 }
 
-function ensureSpecialHandling() {
-  let specialDay = this.get('specialDay');
-
-  if (isPresent(specialDay)) {
-    let { type, value } = specialDay;
-    let klass = type === 'activity' ? `${type}-${value}` : type;
-
-    this.element.classList.add(klass);
-  } else if (this.get('day.isToday')) {
-    this.element.classList.add('today');
+function onMouseOver(calendar, lesson, event) {
+  if (lesson.active) {
+    return;
   }
+
+  calendar.activate(lesson, {
+    shouldCenter: !event.target.parentElement
+      .classList.contains('ember-power-calendar-day--other-month')
+  });
+}
+
+function onMouseOut(calendar, lesson, event) {
+  let elem = this.element;
+  let { target, relatedTarget: related } = event;
+
+  if (!lesson.active || (elem.contains(related) && elem.contains(target))) {
+    return;
+  }
+
+  calendar.deactivate(lesson);
 }
