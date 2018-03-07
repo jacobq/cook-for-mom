@@ -8,13 +8,41 @@
 ul {
   list-style: none;
 
-  li::before {
-    content: '-';
+  li {
+    position: relative;
+    padding: .5rem 0 .5rem 3.5rem;
   }
 
-  li {
-    padding: .5rem 0;
+  li::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 100%;
+
+    content: '';
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   margin-bottom: 0;
+}
+
+li {
+  &.i-potatoes::before {
+    background-image: url(/assets/images/icons/potatoes.png);
+  }
+
+  &.i-soup::before {
+    background-image: url(/assets/images/icons/soup.png);
+  }
+
+  &.i-tacos::before {
+    background-image: url(/assets/images/icons/tacos.png);
+  }
+
+  &.i-cookies::before {
+    background-image: url(/assets/images/icons/cookies.png);
+  }
 }

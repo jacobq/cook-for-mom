@@ -1,3 +1,28 @@
 > section {
   @extend .container-fluid;
 }
+
+.meal-menu {
+  > * {
+    min-height: 20rem;
+  }
+
+  .lead {
+    font-weight: 400;
+
+    ~ .lead {
+      margin-top: 2rem;
+    }
+  }
+
+  li {
+    transition: transform 0.1s ease-in;
+    text-shadow: none;
+
+    &:hover, &.sim-hover {
+      text-decoration: underline;
+      cursor: pointer;
+      transform: skew(-5deg);
+    }
+  }
+}

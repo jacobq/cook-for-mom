@@ -27,14 +27,31 @@
   {{#info.title}} Menu {{/info.title}}
   {{#info.lead}} Impress Mom with this deceptively simple 3-course, gourmet meal: {{/info.lead}}
 
-  <div class='row bg-none'>
-    {{#info.content tagName='ul' class='col-md-5 offset-md-7'}}
-      <li> Purple potatoes with pickled cabbage and crema </li>
-      <li> Salmorejo (rustic Spanish tomato soup) garnished with eggs, breadcrumbs, and ham </li>
-      <li> Tacos — homemade tortilla with roasted pork shoulder or cauliflower, pickled jalapenos, jicama, cotija cheese, and pico de gallo </li>
-      <li> Bonus! Fresh-Baked Ginger Molasses Cookies </li>
+  {{#meal-menu class='row' as |menu|}}
+    <div class='col-md-7 p-relative d-flex flex-column'>
+      {{#each menu.dishes as |dish|}}
+        {{#info.lead tagName='h4' class='text-center d-md-none'}} {{capitalize dish.slug}} {{/info.lead}}
+        <div class='card {{dish.slug}} {{if dish.active 'sim-hover'}}'
+          onmouseover={{action menu.activate dish}}
+          onmouseout={{action menu.deactivate dish}}>
+          <img class='card-img-top' src='{{dish.imageUrl}}'>
+          <div class='card-body d-md-none'>
+            <p class='card-text text-center'> {{dish.description}} </p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+    {{#info.content tagName='ul' class='col-md-5 d-none d-md-flex flex-column justify-content-between'}}
+      {{#each menu.dishes as |dish|}}
+        <li class='i-{{dish.slug}} {{if dish.active 'sim-hover'}}'
+          onmouseover={{action menu.activate dish}}
+          onmouseout={{action menu.deactivate dish}}>
+          {{dish.description}}
+        </li>
+      {{/each}}
     {{/info.content}}
-  </div>
+  {{/meal-menu}}
 {{/index/section-info}}
 
 {{#index/section-objection id='six-free-lessons' childrenClass='col-md-6 offset-md-4' as |objection|}}
