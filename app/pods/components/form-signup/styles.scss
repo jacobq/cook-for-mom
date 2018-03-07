@@ -1,0 +1,75 @@
+& {
+  padding: 1rem 1.25rem;
+}
+
+> * {
+  margin-left: auto;
+  margin-right: auto;
+
+  &:not(header):not(footer) {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+  }
+}
+
+header, footer {
+  font-family: $font-family-heading;
+  text-align: center;
+}
+
+header {
+  font-weight: 200;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  @include media-breakpoint-down(sm) {
+    font-size: calc(1.25rem + (1.5 - 1.25) * (100vw - 25rem) / (48 - 25));
+  }
+
+  em {
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
+footer {
+  button {
+    font-size: inherit;
+    margin: 0 0.5rem;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+fieldset input {
+  padding-right: 0;
+  border-color: $dark;
+
+  &:focus {
+    box-shadow: none;
+    border-color: $dark;
+  }
+}
+
+button.btn-link {
+  padding: 0;
+  font-size: inherit;
+}
+
+li + li {
+  margin-left: .75rem;
+}
+
+small {
+  line-height: .25rem;
+}
+
+img {
+  max-height: 2rem;
+
+  &[src='/assets/images/social/instagram.png'] {
+    opacity: 0.5;
+  }
+}

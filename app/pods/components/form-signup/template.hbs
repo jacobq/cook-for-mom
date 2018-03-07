@@ -1,0 +1,63 @@
+{{#unless didSubmit}}
+  {{yield (hash
+    didSubmit=didSubmit
+    header=(component headerComponent)
+    main=(component mainComponent tagName='fieldset')
+    footer=(component footerComponent)
+    keydown=(action keydown)
+    submit=(action submit)
+    reset=(action (mut didSubmit) false)
+  )}}
+{{else}}
+  {{#component headerComponent}}
+    Thank you for joining!<br />
+    We are excited to cook with you.<br />
+    Please join us on:
+  {{/component}}
+
+  {{#component mainComponent tagName='ul' class='list-inline text-center'}}
+    <li class='list-inline-item'>
+      <a href='https://instagram.com/cookformomdotcom' target='_blank'>
+        <img src='/assets/images/social/instagram.png'>
+      </a>
+    </li>
+
+    <li class='list-inline-item'>
+      <a href='https://facebook.com/cookformomdotcom' target='_blank'>
+        <img src='/assets/images/social/facebook.png'>
+      </a>
+    </li>
+
+    <li class='list-inline-item'>
+      <a href='https://reddit.com/r/cookformom' target='_blank'>
+        <img src='/assets/images/social/reddit.png'>
+      </a>
+    </li>
+  {{/component}}
+
+  {{#component footerComponent}}
+    <small>
+      And consider
+      <button class='btn btn-link text-primary align-baseline m-0' type='button'
+        onclick={{action share 'facebook'}}>
+        sharing on Facebook&zwj;
+      </button>.
+    </small>
+
+    <p>
+      {{#if canReset}}
+        <button class='btn btn-link text-secondary align-baseline' type='button'
+          onclick={{action (mut didSubmit) false}}>
+          Reset
+        </button>
+
+        or
+      {{/if}}
+
+      <button class='btn btn-dark' type='button'
+        onclick={{action buySupplies}}>
+        Buy Supplies
+      </button>
+    </p>
+  {{/component}}
+{{/unless}}

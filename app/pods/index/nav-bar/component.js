@@ -4,7 +4,11 @@ export default Component.extend({
   tagName: 'nav',
   classNames: ['container-fluid'],
 
-  isShowingEmailButton: false,
+  isButtonVisible: true,
+  isButtonFormVisible: false,
+
+  didSubmit: false,
+  onSubmit: function() {},
 
   didInsertElement() {
     setActiveAnchor.call(this);

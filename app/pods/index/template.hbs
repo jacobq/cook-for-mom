@@ -1,22 +1,12 @@
-{{index/hero-image}}
-
-{{#ember-wormhole to='hero-form-container' renderInPlace=isBootstrapSmDown}}
-  {{#index/hero-form
-    didSubmit=(readonly application.didSubmit)
-    onSubmit=(action application.onSubmit) as |form|}}
-    {{#unless form.didSubmit}}
-      {{index/hero-form/form form
-        onViewportEntered=(action (mut isHeroFormShowing) true)
-        onViewportExited=(action (mut isHeroFormShowing) false)}}
-    {{else}}
-      {{index/hero-form/thanks form
-        reset=(action (mut form.didSubmit) false)}}
-    {{/unless}}
-  {{/index/hero-form}}
-{{/ember-wormhole}}
+{{index/hero-header
+  didSubmit=(readonly application.didSubmit)
+  onSubmit=(action (mut application.didSubmit) true)
+  onFormVisibilityChange=(action (mut isHeroFormShowing))}}
 
 {{index/nav-bar
-  isShowingEmailButton=(not (or application.didSubmit isHeroFormShowing))}}
+  isButtonVisible=(not isHeroFormShowing)
+  didSubmit=(readonly application.didSubmit)
+  onSubmit=(action (mut application.didSubmit) true)}}
 
 {{#index/section-objection childrenClass='col-md-6 offset-md-1' as |objection|}}
   {{#objection.question}} Not yet comfortable scrambling an egg? {{/objection.question}}

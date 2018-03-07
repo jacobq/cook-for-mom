@@ -17,9 +17,41 @@
     </li>
   </ul>
 
-  {{#if isShowingEmailButton}}
+  {{#if isButtonVisible}}
     <aside class='ml-3 ml-md-auto d-inline-block'>
-      <button class='btn bg-primary text-white' type='button'> Sign me up! </button>
+      <button class='btn bg-primary btn-outline-primary text-white' type='button'>
+        {{unless didSubmit 'Sign up today!' 'Follow & Share'}}
+      </button>
+
+      {{#bs-tooltip position='bottom' visible=isButtonFormVisible}}
+        {{#form-signup
+          didSubmit=didSubmit
+          shouldFocusInput=false
+          canReset=false
+          onSubmit=(action onSubmit) as |form|}}
+          {{#form.header}}
+            <em>Enter your email</em> below and <em>immediately</em>
+            receive your <em>free</em> Mother's Day <em>meal plan</em>!
+          {{/form.header}}
+
+          {{#form.main}}
+            <input type='email' class='form-control'
+              tabindex=1
+              placeholder='julias.child@cookformom.com'
+              onkeydown={{action form.keydown}}
+              aria-label="Your email">
+
+            <button class='btn bg-primary btn-outline-primary text-white' type='button'
+              onclick={{action form.submit}}>
+              Sign Me Up
+            </button>
+          {{/form.main}}
+
+          {{#form.footer class='small'}}
+            100% private; your information is not for sale.
+          {{/form.footer}}
+        {{/form-signup}}
+      {{/bs-tooltip}}
     </aside>
   {{/if}}
 </div>

@@ -1,0 +1,45 @@
+<main class='d-flex justify-content-end align-items-end'>
+  <aside>
+    <h1 class='display-3'>
+      This Mother's Day,<br />
+      <em>you</em> feed <em>her</em>.
+    </h1>
+
+    <div id='hero-form-container' />
+  </aside>
+</main>
+
+{{#ember-wormhole to='hero-form-container' renderInPlace=(not isFormFloating)}}
+  {{#form-signup
+    didSubmit=didSubmit
+    onSubmit=(action onSubmit)
+    onViewportEntered=(action onFormVisibilityChange true)
+    onViewportExited=(action onFormVisibilityChange false) as |form|}}
+    {{#form.header}}
+      Get <em>a gourmet meal plan</em> mom will love,<br />
+      plus <em>six free lessons</em> for everything<br />
+      from <em>shopping</em> to <em>cooking</em> to <em>serving</em>.<br />
+    {{/form.header}}
+
+    {{#form.main}}
+      <div class='input-group d-block d-md-flex'>
+        <input type='email' class='form-control'
+          placeholder='julias.child@cookformom.com'
+          onkeydown={{action form.keydown}}
+          aria-label="Your email">
+
+        <div class='input-group-append'>
+          <button class='btn bg-primary btn-outline-primary text-white' type='button'
+            onclick={{action form.submit}}>
+            Get Free Meal Plan
+          </button>
+          {{! todo: disable unless filled in + show CSS tooltip }}
+        </div>
+      </div>
+    {{/form.main}}
+
+    {{#form.footer class='small'}}
+      100% private; your information is not for sale.
+    {{/form.footer}}
+  {{/form-signup}}
+{{/ember-wormhole}}
