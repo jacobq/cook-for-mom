@@ -2,6 +2,14 @@
   @extend .container-fluid;
 }
 
+a.anchor {
+  display: block;
+  position: relative;
+  top: calc(-1 * (var(--nav-height) + 1rem));
+
+  visibility: hidden;
+}
+
 .meal-menu {
   > * {
     min-height: 20rem;

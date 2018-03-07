@@ -18,12 +18,13 @@
 {{index/nav-bar
   isShowingEmailButton=(not (or application.didSubmit isHeroFormShowing))}}
 
-{{#index/section-objection id='menu' childrenClass='col-md-6 offset-md-1' as |objection|}}
+{{#index/section-objection childrenClass='col-md-6 offset-md-1' as |objection|}}
   {{#objection.question}} Not yet comfortable scrambling an egg? {{/objection.question}}
   {{#objection.answer}} No matter your experience -- kitchen zero or culinary hero -- our tested recipes and 6-week lesson plan will help cooks of all levels build (or brush up on!) the knowledge, skills, and confidence you'll need for a delicious meal. {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info as |info|}}
+  <a class='anchor' id='menu' />
   {{#info.title}} Menu {{/info.title}}
   {{#info.lead}} Impress Mom with this deceptively simple 3-course, gourmet meal: {{/info.lead}}
 
@@ -54,12 +55,13 @@
   {{/meal-menu}}
 {{/index/section-info}}
 
-{{#index/section-objection id='six-free-lessons' childrenClass='col-md-6 offset-md-4' as |objection|}}
+{{#index/section-objection childrenClass='col-md-6 offset-md-4' as |objection|}}
   {{#objection.question}} Is Mom vegan? Need a gluten-free option? {{/objection.question}}
   {{#objection.answer}} Each lesson focuses on building your knowledge and skills, and includes suggested modifications for popular diets. Your Mother's Day recipes will come with inline notes for vegetarian & vegan options. {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info as |info|}}
+  <a class='anchor' id='six-free-lessons' />
   {{#info.title}} Six Free Lessons {{/info.title}}
 
   <div class='row'>
@@ -80,12 +82,13 @@
   </div>
 {{/index/section-info}}
 
-{{#index/section-objection id='about-us' childrenClass='col-md-6 offset-md-3' as |objection|}}
+{{#index/section-objection childrenClass='col-md-6 offset-md-3' as |objection|}}
   {{#objection.question}} Worried about the time commitment? {{/objection.question}}
   {{#objection.answer}} You will only need 2 - 4 hours per week to keep up with our weekly lessons; your full Mother's Day meal will need about 6 hours you can split between two days. Plus, our digital course is designed for your modern schedule, where a weekly 6pm class might not be a flexible enough solution. {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info as |info|}}
+  <a class='anchor' id='about-us' />
   {{#info.title}} About Us {{/info.title}}
 
   <div class='row'>
@@ -111,12 +114,13 @@
   </div>
 {{/index/section-info}}
 
-{{#index/section-objection id='what-you-need' childrenClass='col-md-6 offset-md-6' as |objection|}}
+{{#index/section-objection childrenClass='col-md-6 offset-md-6' as |objection|}}
   {{#objection.question}} Does running a kitchen for one have to be wasteful? {{/objection.question}}
   {{#objection.answer}} We'll show you how to use by-products like chicken bones to run a continuous kitchen, and how reusing and remixing your leftovers can add variety to your diet. {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info as |info|}}
+  <a class='anchor' id='what-you-need' />
   {{#info.title}} What You'll Need {{/info.title}}
 
   {{#info.lead}} The Basics: {{/info.lead}}
@@ -142,7 +146,7 @@
   {{/info.content}}
 {{/index/section-info}}
 
-{{#index/section-info id='cooking-community' as |info|}}
+{{#index/section-info as |info|}}
   {{#info.title}} A Cooking Community {{/info.title}}
   {{#info.lead}} Cooking is best done with others, which is why you will find us on: {{/info.lead}}
   {{#info.content tagName='ul'}}
