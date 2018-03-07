@@ -45,4 +45,32 @@ li {
   &.i-cookies::before {
     background-image: url(/assets/images/icons/cookies.png);
   }
+
+  &.i-knife::before {
+    background-image: url(/assets/images/icons/knife.png);
+  }
+
+  &.i-pan::before {
+    background-image: url(/assets/images/icons/pan.png);
+  }
+
+  &.i-shop::before {
+    background-image: url(/assets/images/icons/shop.png);
+  }
+
+  &.i-recycle::before {
+    background-image: url(/assets/images/icons/recycle.png);
+  }
+
+  &.i-clock::before {
+    background-image: url(/assets/images/icons/clock.png);
+  }
+
+  &.i-camera::before {
+    background-image: url(/assets/images/icons/camera.png);
+  }
+
+  &.i-learning::before {
+    background-image: url(/assets/images/icons/learning.png);
+  }
 }
