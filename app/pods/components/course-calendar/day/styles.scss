@@ -11,7 +11,12 @@
   box-shadow: 1px 1px 2px $color-rosy-brown;
 }
 
-&.lesson, &.today {
+&.today {
+  background: $primary;
+  color: lighten($color-gainsboro, 10%);
+}
+
+&.lesson {
   background: $color-sienna;
   color: lighten($color-gainsboro, 10%);
 }
