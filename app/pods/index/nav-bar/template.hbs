@@ -19,14 +19,18 @@
 
   {{#if isButtonVisible}}
     <aside class='ml-3 ml-md-auto d-inline-block'>
-      <button class='btn bg-primary btn-outline-primary text-white' type='button'>
+      <button type='button'
+        class='btn btn-outline-primary {{if isNudging 'bg-none text-dark' 'bg-primary text-white'}}'>
         {{unless didSubmit 'Sign up today!' 'Follow & Share'}}
       </button>
 
-      {{#bs-tooltip position='bottom' visible=isButtonFormVisible}}
+      {{#bs-tooltip
+        position='bottom'
+        visible=isNudging
+        onHidden=(action cancelNudge)}}
         {{#form-signup
           didSubmit=didSubmit
-          shouldFocusInput=false
+          shouldFocusInput=isNudging
           canReset=false
           onSubmit=(action onSubmit) as |form|}}
           {{#form.header}}

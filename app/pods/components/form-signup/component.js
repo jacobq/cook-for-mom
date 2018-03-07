@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { not } from '@ember/object/computed';
 import { isPresent } from '@ember/utils';
-import { bind, next } from '@ember/runloop';
+import { bind, next, once } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 
 import share from '../../../utils/share';
@@ -38,9 +38,13 @@ export default Component.extend({
     ]);
 
     if ([entered, exited].any(isPresent)) {
-      this._scrollListener = bind(this, checkViewport);
+      this._scrollListener = bind(this, once, this, checkViewport);
 
-      window.addEventListener('scroll', this._scrollListener, true);
+      window.addEventListener('scroll', this._scrollListener, {
+        capture: true,
+        passive: true
+      });
+
       next(this, checkViewport);
     }
 
@@ -50,7 +54,11 @@ export default Component.extend({
   },
 
   willDestroyElement() {
-    window.removeEventListener('scroll', this._scrollListener, true);
+    window.removeEventListener('scroll', this._scrollListener, {
+      capture: true,
+      passive: true
+    });
+
     this._viewportListener = null;
   },
 

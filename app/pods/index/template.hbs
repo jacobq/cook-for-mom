@@ -5,15 +5,19 @@
 
 {{index/nav-bar
   isButtonVisible=(not isHeroFormShowing)
+  isNudging=(readonly application.isNudging)
   didSubmit=(readonly application.didSubmit)
-  onSubmit=(action (mut application.didSubmit) true)}}
+  onSubmit=(action (mut application.didSubmit) true)
+  requestNudgeFor=(action application.requestNudgeFor application 'navbar')
+  cancelNudge=(action (mut application.isNudging) false)}}
 
 {{#index/section-objection childrenClass='col-md-6 offset-md-1' as |objection|}}
   {{#objection.question}} Not yet comfortable scrambling an egg? {{/objection.question}}
   {{#objection.answer}} No matter your experience -- kitchen zero or culinary hero -- our tested recipes and 6-week lesson plan will help cooks of all levels build (or brush up on!) the knowledge, skills, and confidence you'll need for a delicious meal. {{/objection.answer}}
 {{/index/section-objection}}
 
-{{#index/section-info as |info|}}
+{{#index/section-info
+  onScrollOutBottom=(action (mut application.canNudgeUser) true) as |info|}}
   <a class='anchor' id='menu' />
   {{#info.title}} Menu {{/info.title}}
   {{#info.lead}} Impress Mom with this deceptively simple 3-course, gourmet meal: {{/info.lead}}

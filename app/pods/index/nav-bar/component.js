@@ -1,34 +1,71 @@
 import Component from '@ember/component';
+import { bind, once } from '@ember/runloop';
+import { isPresent } from '@ember/utils';
 
 export default Component.extend({
   tagName: 'nav',
   classNames: ['container-fluid'],
 
   isButtonVisible: true,
-  isButtonFormVisible: false,
+  isNudging: false,
 
   didSubmit: false,
   onSubmit: function() {},
 
+  _didNudgeOnHover: false,
+
+  init() {
+    this._super(...arguments);
+  },
+
   didInsertElement() {
     setActiveAnchor.call(this);
-    this._anchorChangeListener = setActiveAnchor.bind(this);
+    this._anchorChangeListener = bind(this, once, this, setActiveAnchor);
+    this._hoverNudgeListener = bind(this, once, this, hoverNudgeListener);
 
-    window.addEventListener('scroll', this._anchorChangeListener, true);
-    window.addEventListener('resize', this._anchorChangeListener, true);
+    window.addEventListener('scroll', this._anchorChangeListener, {
+      capture: true,
+      passive: true
+    });
+
+    window.addEventListener('resize', this._anchorChangeListener, {
+      capture: true,
+      passive: true
+    });
+
+    this.element.addEventListener('mouseover', this._hoverNudgeListener, {
+      capture: true,
+      passive: true
+    });
   },
 
   willDestroyElement() {
-    window.removeEventListener('scroll', this._anchorChangeListener, true);
-    window.removeEventListener('resize', this._anchorChangeListener, true);
+    window.removeEventListener('scroll', this._anchorChangeListener, {
+      capture: true,
+      passive: true
+    });
+
+    window.removeEventListener('resize', this._anchorChangeListener, {
+      capture: true,
+      passive: true
+    });
 
     this._anchorChangeListener = null;
+
+    if (isPresent(this._hoverNudgeListener)) {
+      this.element.removeEventListener('mouseover', this._hoverNudgeListener, {
+        capture: true,
+        passive: true
+      });
+
+      this._hoverNudgeListener = null;
+    }
   }
 });
 
 function setActiveAnchor() {
   let sections = Array.from(document.querySelectorAll('section.info'));
-  let anchorLinks = this.element.querySelectorAll('a:not([href="#"])');
+  let anchorLinks = this.element.querySelectorAll('a');
   let minTop = window.innerHeight * .5;
 
   // n.b. `reverse` reverses the array in place, so we count down
@@ -57,5 +94,15 @@ function scrollToElem(elem) {
     ulElem.scrollLeft = ulElem.scrollLeft + (right - ulRight);
   } else if (left < 0) {
     ulElem.scrollLeft = ulElem.scrollLeft + left;
+  }
+}
+
+function hoverNudgeListener() {
+  if (this.element.getBoundingClientRect().top > 0) {
+    return;
+  }
+
+  if (this.get('requestNudgeFor')('exit-hover')) {
+    this._hoverNudgeListener = null;
   }
 }
