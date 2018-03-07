@@ -21,7 +21,10 @@ export default Component.extend({
       this._resizeListener = bind(this, once, this, computeWindowSize);
 
       this._resizeListener();
-      window.addEventListener('resize', this._resizeListener, true);
+      window.addEventListener('resize', this._resizeListener, {
+        capture: true,
+        passive: true
+      });
     }
 
     if (this.get('isMobile.any')) {
@@ -37,7 +40,11 @@ export default Component.extend({
 
   willDestroy() {
     if (typeof FastBoot === 'undefined') {
-      window.removeEventListener('resize', this._resizeListener, true);
+      window.removeEventListener('resize', this._resizeListener, {
+        capture: true,
+        passive: true
+      });
+
       this._resizeListener = null;
     }
   }

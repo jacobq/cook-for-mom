@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { bind } from '@ember/runloop';
+import { bind, once } from '@ember/runloop';
 import { isPresent } from '@ember/utils';
 
 const Day = Component.extend({
@@ -35,17 +35,27 @@ const Day = Component.extend({
   didInsertElement() {
     let { calendar, specialDay } = this.getProperties('calendar', 'specialDay');
 
-    this._onClick = bind(this, onClick);
-    this.element.addEventListener('click', this._onClick, true);
+    this._onClick = bind(this, once, this, 'onClick');
+    this.element.addEventListener('click', this._onClick, {
+      capture: true,
+      passive: true
+    });
 
     if (isPresent(specialDay) && specialDay.type === 'lesson') {
       let { value: lesson } = specialDay;
 
-      this._onMouseOver = bind(this, onMouseOver, calendar, lesson);
-      this._onMouseOut = bind(this, onMouseOut, calendar, lesson);
+      this._onMouseOver = bind(this, once, this, onMouseOver, calendar, lesson);
+      this._onMouseOut = bind(this, once, this, onMouseOut, calendar, lesson);
 
-      this.element.addEventListener('mouseover', this._onMouseOver, true);
-      this.element.addEventListener('mouseout', this._onMouseOut, true);
+      this.element.addEventListener('mouseover', this._onMouseOver, {
+        capture: true,
+        passive: true
+      });
+
+      this.element.addEventListener('mouseout', this._onMouseOut, {
+        capture: true,
+        passive: true
+      });
     }
   },
 
@@ -54,12 +64,20 @@ const Day = Component.extend({
     this._onClick = null;
 
     if (this._onMouseOver) {
-      this.element.removeEventListener('mouseover', this._onMouseOver, true);
+      this.element.removeEventListener('mouseover', this._onMouseOver, {
+        capture: true,
+        passive: true
+      });
+
       this._onMouseOver = null;
     }
 
     if (this._onMouseOut) {
-      this.element.removeEventListener('mouseout', this._onMouseOut, true);
+      this.element.removeEventListener('mouseout', this._onMouseOut, {
+        capture: true,
+        passive: true
+      });
+
       this._onMouseOut = null;
     }
   }
