@@ -1,23 +1,25 @@
-<ul class='container nav justify-content-between justify-content-md-start'>
-  <li class='nav-item'>
-    <a class='nav-link' href='#menu'> Menu </a>
-  </li>
+<div class='container p-0 d-flex align-items-center'>
+  <ul class='nav'>
+    <li class='nav-item'>
+      <a class='nav-link' href='#menu'> Menu </a>
+    </li>
 
-  <li class='nav-item'>
-    <a class='nav-link' href='#six-free-lessons'> Six Free Lessons </a>
-  </li>
+    <li class='nav-item'>
+      <a class='nav-link' href='#six-free-lessons'> Six Free Lessons </a>
+    </li>
 
-  <li class='nav-item'>
-    <a class='nav-link' href='#about-us'> About Us </a>
-  </li>
+    <li class='nav-item'>
+      <a class='nav-link' href='#about-us'> About Us </a>
+    </li>
 
-  <li class='nav-item'>
-    <a class='nav-link' href='#what-you-need'> What You'll Need </a>
-  </li>
+    <li class='nav-item'>
+      <a class='nav-link' href='#what-you-need'> What You'll Need </a>
+    </li>
+  </ul>
 
   {{#if isShowingEmailButton}}
-    <li class='nav-item ml-auto'>
+    <aside class='ml-3 ml-md-auto d-inline-block'>
       <button class='btn bg-primary text-white' type='button'> Sign me up! </button>
-    </li>
+    </aside>
   {{/if}}
-</ul>
+</div>

@@ -33,9 +33,25 @@ function setActiveAnchor() {
 
   anchorLinks.forEach((elem, index) => {
     if (index === firstVisibleIndex) {
+      if (elem !== this.element.querySelector('.active')) {
+        scrollToElem.call(this, elem);
+      }
+
       elem.classList.add('active');
     } else {
       elem.classList.remove('active');
     }
   });
+}
+
+function scrollToElem(elem) {
+  let ulElem = this.element.querySelector('ul');
+  let { right: ulRight } = ulElem.getBoundingClientRect();
+  let { left, right } = elem.getBoundingClientRect();
+
+  if (right > ulRight) {
+    ulElem.scrollLeft = ulElem.scrollLeft + (right - ulRight);
+  } else if (left < 0) {
+    ulElem.scrollLeft = ulElem.scrollLeft + left;
+  }
 }

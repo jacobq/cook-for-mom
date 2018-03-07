@@ -6,6 +6,27 @@
 
   background: lighten($color-khaki, 25%);
   font-weight: 300;
+  height: 3.5rem;
+  overflow-y: hidden;
+  max-width: 100vw;
+}
+
+.nav {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  flex-wrap: nowrap;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    height: 0;
+    display: none;
+  }
+}
+
+li {
+  display: inline-block;
+  padding: 0.5rem 0rem;
 }
 
 a.nav-link {
@@ -20,6 +41,3 @@ a.nav-link {
   text-decoration: underline;
 }
 
-li {
-  padding: 0.5rem 0rem;
-}
