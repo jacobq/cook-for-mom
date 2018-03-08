@@ -2,14 +2,23 @@
   background: lighten($color-gainsboro, 10%);
 
   padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
 }
 
-h4 {
+header {
   font-family: $font-family-heading;
-  font-weight: 200;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  margin-bottom: 1rem;
 }
 
-p {
-  color: $color-black;
+main {
+  color: $dark;
+  font-weight: 300;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }

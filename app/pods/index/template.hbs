@@ -11,9 +11,12 @@
   requestNudgeFor=(action application.requestNudgeFor application 'navbar')
   cancelNudge=(action (mut application.isNudging) false)}}
 
-{{#index/section-objection childrenClass='col-md-6 offset-md-1' as |objection|}}
-  {{#objection.question}} Not yet comfortable scrambling an egg? {{/objection.question}}
-  {{#objection.answer}} No matter your experience -- kitchen zero or culinary hero -- our tested recipes and 6-week lesson plan will help cooks of all levels build (or brush up on!) the knowledge, skills, and confidence you'll need for a delicious meal. {{/objection.answer}}
+{{#index/section-objection childrenClass='col-md-7 offset-md-1' as |objection|}}
+  {{#objection.question}} Are you more comfortable washing than cooking? {{/objection.question}}
+  {{#objection.answer}}
+    <p> We will email you 6 custom lessons—one per week, every week—specially designed to teach you cooking fundamentals, with plenty of links to supplemental materials if you'd like to explore further. </p>
+    <p> Whether you're a kitchen zero or culinary hero, each week's tested recipes will have you practicing what you've learned. We are confident you will be ready to cook a gourmet dinner come Mother's Day! </p>
+  {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info
@@ -51,7 +54,10 @@
 
 {{#index/section-objection childrenClass='col-md-6 offset-md-4' as |objection|}}
   {{#objection.question}} Is Mom vegan? Need a gluten-free option? {{/objection.question}}
-  {{#objection.answer}} Each lesson focuses on building your knowledge and skills, and includes suggested modifications for popular diets. Your Mother's Day recipes will come with inline notes for vegetarian & vegan options. {{/objection.answer}}
+  {{#objection.answer}}
+    <p> Each weekly lesson focuses on cooking fundamentals useful for carnivores and raw vegans alike. </p>
+    <p> Lessons' recipes will include suggested modifications for many popular diets; the Week 6 (Mother's Day!) recipes will come with inline notes for vegetarian & vegan options. </p>
+  {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info as |info|}}
@@ -60,7 +66,7 @@
 
   {{#course-calendar class='row' as |calendar|}}
     <div class='col-md-6'>
-      {{#info.lead}} In the weeks leading up to Mother's Day, you will learn: {{/info.lead}}
+      {{#info.lead}} Starting April 2, we will send you new lesson content every week, covering topics such as: {{/info.lead}}
       {{#info.content tagName='ul'}}
         {{#each calendar.lessons as |lesson|}}
           <li class='i-{{lesson.slug}} {{if lesson.active 'sim-hover'}}'
@@ -91,33 +97,70 @@
   {{/course-calendar}}
 {{/index/section-info}}
 
-{{#index/section-objection childrenClass='col-md-6 offset-md-3' as |objection|}}
-  {{#objection.question}} Worried about the time commitment? {{/objection.question}}
-  {{#objection.answer}} You will only need 2 - 4 hours per week to keep up with our weekly lessons; your full Mother's Day meal will need about 6 hours you can split between two days. Plus, our digital course is designed for your modern schedule, where a weekly 6pm class might not be a flexible enough solution. {{/objection.answer}}
+{{#index/section-objection childrenClass='col-md-6 offset-md-2' as |objection|}}
+  {{#objection.question}} Feeling crunched for time? {{/objection.question}}
+  {{#objection.answer}}
+    <p> If you want to spend less than 5 hours per week in the kitchen, let's make the most of your time! Our lessons are packed full of helpful tips for common tasks like shopping, cooking, and cleaning. </p>
+    <p> You should expect to spend 2 - 4 hours each week shopping and cooking, and can schedule these at your leisure. Our final Mother's Day meal will require 6 - 8 hours; we will help you schedule your shopping and prep across 2 or 3 days. </p>
+  {{/objection.answer}}
 {{/index/section-objection}}
 
 {{#index/section-info
-  onScrollOutBottom=(action application.requestNudgeFor application 'about' 'didScrollPast') as |info|}}
+  onScrollOutBottom=(action application.requestNudgeFor application 'why-is-this-free' 'didScrollPast') as |info|}}
+  <a class='anchor' id='why-is-this-free' />
+  {{#info.title}} Why Is This Free? {{/info.title}}
+
+  <div class='row'>
+    <div class='col-md-8'>
+      {{#info.lead}} We swear, there really is no catch. {{/info.lead}}
+      {{#info.content}}
+        <p> Cook For Mom is a bespoke, ethically-produced course curated and largely written by <a href='#corey'>Corey Mintz</a>. Corey is a Toronto-based food writer, and in a former life even cooked professionally (bio below). </p>
+        <p class='mb-0'> <a href='#aidan'>Aidan Nulman</a> created this site, owns the accounts, and is subsidizing costs. In his own time, Aidan is working on software for cooks; through this course he hopes to provide value to (and hopefully meet!) strangers who want to cook better. </p>
+      {{/info.content}}
+    </div>
+  </div>
+  {{! todo say hello on facebook, twitter, insta }}
+{{/index/section-info}}
+
+{{#index/section-objection childrenClass='col-md-6 offset-md-2' as |objection|}}
+  {{#objection.question}} Need kitchen gear? {{/objection.question}}
+  {{#objection.answer}}
+    <p> You don't need a rice cooker or a stand mixer to follow along, but you will need some basics. In particular: </p>
+    <ul>
+      {{! todo affiliate? }}
+      <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
+      <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
+      <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
+      <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a wine bottle will do in a pinch!)</li>
+    </ul>
+
+    <p class='small'> If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca". For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>. </p>
+  {{/objection.answer}}
+{{/index/section-objection}}
+
+{{#index/section-info as |info|}}
   <a class='anchor' id='about-us' />
   {{#info.title}} About Us {{/info.title}}
 
   <div class='row'>
     <div class='col-md-6 d-flex flex-column'>
+      <a id='corey' />
       {{#info.lead}} Corey Mintz {{/info.lead}}
       {{#info.content tagName='div' class='d-flex flex-column justify-content-between'}}
         <p> Corey Mintz is a food writer and columnist for the Globe & Mail, focusing on the intersection between food with politics, farming, labour, ethics and culture. </p>
-        <p> Before this spoiled lifestyle, he was a restaurant critic.  Before that spoiled life, he actually worked for a living, as a cook. He is also the author of How to Host a Dinner Party (House of Anansi, 2013). </p>
-        <p> For his long running Fed column in the Toronto Star, he has hosted 192 dinner parties. Guests ranged from politicians, criminals, and artists, to hi-rise window washers, competitive barbecuers and police college instructors. </p>
+        <p class='d-none d-md-block'> Before this spoiled lifestyle, he was a restaurant critic.  Before that spoiled life, he actually worked for a living, as a cook. He is also the author of How to Host a Dinner Party (House of Anansi, 2013). </p>
+        <p class='d-none d-md-block'> For his long running Fed column in the Toronto Star, he has hosted 192 dinner parties. Guests ranged from politicians, criminals, and artists, to hi-rise window washers, competitive barbecuers and police college instructors. </p>
         <p> He is a fully licensed driver. </p>
       {{/info.content}}
     </div>
 
     <div class='col-md-6 d-flex flex-column mt-3 mt-md-0'>
+      <a id='aidan' />
       {{#info.lead}} Aidan Nulman {{/info.lead}}
       {{#info.content tagName='div' class='d-flex flex-column justify-content-between'}}
         <p> Aidan is a serial founder and full-stack developer based in Toronto, Canada who wants to help cooks build confidence as they acquire new skills in the kitchen. </p>
-        <p> Prior to developing this course, Aidan was a Partner at Isle of Code, where he shipped web, mobile, and desktop apps for clients including TED, Common Sort, and Humi.</p>
-        <p> When not slinging code or in the kitchen, he is most often found bicycling, enjoying live music, or neck-deep in Legend of Zelda: Breath of the Wild. </p>
+        <p class='d-none d-md-block'> Prior to developing this course, Aidan was a Partner at Isle of Code, where he shipped web, mobile, and desktop apps for clients including TED, Common Sort, and Humi.</p>
+        <p class='d-none d-md-block'> When not slinging code or in the kitchen, he is most often found bicycling, enjoying live music, or neck-deep in Legend of Zelda: Breath of the Wild. </p>
         <p> Aidan owns an autographed MC Hammer photograph. </p>
       {{/info.content}}
     </div>
@@ -125,45 +168,13 @@
 {{/index/section-info}}
 
 {{#index/section-objection childrenClass='col-md-6 offset-md-6' as |objection|}}
-  {{#objection.question}} Does running a kitchen for one have to be wasteful? {{/objection.question}}
-  {{#objection.answer}} We'll show you how to use by-products like chicken bones to run a continuous kitchen, and how reusing and remixing your leftovers can add variety to your diet. {{/objection.answer}}
+  {{#objection.question}} Don't cook alone! {{/objection.question}}
+  {{#objection.answer}}
+    <p> Come say hello and share your successes and questions with us online! </p>
+    <p> Don't be afraid to ask for help; we are committed to maintaining an inclusive community of commenters and co-collaborators.</p>
+    <p> Join us on: </p>
+    <ul>
+      <li> Foo </li>
+    </ul>
+  {{/objection.answer}}
 {{/index/section-objection}}
-
-{{#index/section-info as |info|}}
-  <a class='anchor' id='what-you-need' />
-  {{#info.title}} What You'll Need {{/info.title}}
-
-  {{#info.lead}} The Basics: {{/info.lead}}
-  {{#info.content tagName='div' class='col-md-10 offset-md-1'}}
-    <ul>
-      {{! todo affiliate? }}
-      <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
-      <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
-      <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
-      <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a wine bottle will do!)</li>
-    </ul>
-
-    <p><small>If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca". For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.</small></p>
-  {{/info.content}}
-
-  {{#info.lead}} Useful Extras: {{/info.lead}}
-  {{#info.content tagName='div' class='col-md-10 offset-md-1'}}
-    <p> If you're confident making some extra investments in your kitchen, we also recommend picking up: </p>
-    <ul>
-      <li>A knife sharpener</li>
-      <li>A food processor / blender / immersion blender</li>
-    </ul>
-  {{/info.content}}
-{{/index/section-info}}
-
-{{#index/section-info as |info|}}
-  {{#info.title}} A Cooking Community {{/info.title}}
-  {{#info.lead}} Cooking is best done with others, which is why you will find us on: {{/info.lead}}
-  {{#info.content tagName='ul'}}
-    <li>Facebook, in the <a href='https://www.facebook.com/groups/193718594710769'>Cook For Mom group</a></li>
-    <li>Reddit, at <a href='https://reddit.com/r/cookformom'>/r/cookformom</a></li>
-    <li>Instagram, with the hashtag <a href='https://www.instagram.com/explore/tags/cookformom/'>#cookformom</a></li>
-    <li>Twitter, with the hashtag <a href='https://twitter.com/search?q=%23cookformom'>#cookformom</a></li>
-  {{/info.content}}
-{{/index/section-info}}
-{{! index/press-testimonials? }}
