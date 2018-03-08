@@ -94,7 +94,8 @@
   {{#objection.answer}} You will only need 2 - 4 hours per week to keep up with our weekly lessons; your full Mother's Day meal will need about 6 hours you can split between two days. Plus, our digital course is designed for your modern schedule, where a weekly 6pm class might not be a flexible enough solution. {{/objection.answer}}
 {{/index/section-objection}}
 
-{{#index/section-info as |info|}}
+{{#index/section-info
+  onScrollOutBottom=(action application.requestNudgeFor application 'about' 'didScrollPast') as |info|}}
   <a class='anchor' id='about-us' />
   {{#info.title}} About Us {{/info.title}}
 
