@@ -3515,9 +3515,9 @@ ember-metrics@^0.12.1:
     ember-getowner-polyfill "^2.0.0"
     ember-runtime-enumerable-includes-polyfill "^2.0.0"
 
-ember-moment@^7.5.0, ember-moment@^7.6.0:
+ember-moment@^7.5.0, ember-moment@stefanpenner/ember-moment:
   version "7.6.0"
-  resolved "https://registry.yarnpkg.com/ember-moment/-/ember-moment-7.6.0.tgz#f82beba81a6b9f4ea3bb0ac2463cc5d2c5cbd8e6"
+  resolved "https://codeload.github.com/stefanpenner/ember-moment/tar.gz/26d8a29832e18b94a5b5e8bbf34a101e5bbc8081"
   dependencies:
     ember-cli-babel "^6.7.2"
     ember-getowner-polyfill "^2.0.1"
