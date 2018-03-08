@@ -8,6 +8,7 @@ const Day = Component.extend({
 
   calendar: null,
   day: null,
+  nudgeSignup: function() {},
 
   dayString: computed('day', function() {
     return this.get('day.moment').format('MM-DD');
@@ -35,7 +36,7 @@ const Day = Component.extend({
   didInsertElement() {
     let { calendar, specialDay } = this.getProperties('calendar', 'specialDay');
 
-    this._onClick = bind(this, once, this, 'onClick');
+    this._onClick = bind(this, once, this, onClick);
     this.element.addEventListener('click', this._onClick, {
       capture: true,
       passive: true
@@ -91,7 +92,7 @@ export default Day;
 
 function onClick(/* event */) {
   if (this.get('day.isToday')) {
-    alert('todo sign up');
+    this.get('nudgeSignup')();
   }
 }
 

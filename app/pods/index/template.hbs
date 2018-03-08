@@ -82,7 +82,9 @@
           minDate=calendar.min
           maxDate=calendar.max
           dayIsDisabled=calendar.dayIsDisabled as |day|}}
-          {{course-calendar/day calendar day}}
+          {{course-calendar/day calendar day
+            didSubmit=(readonly application.didSubmit)
+            nudgeSignup=(action (mut application.isNudging) true)}}
         {{/power.days}}
       {{/power-calendar}}
     </div>
