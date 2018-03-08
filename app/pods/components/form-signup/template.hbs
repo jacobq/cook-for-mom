@@ -28,6 +28,7 @@
       </a>
     </li>
 
+    {{! todo twitter }}
     <li class='list-inline-item'>
       <a href='https://reddit.com/r/cookformom' target='_blank'>
         <img src='/assets/images/social/reddit.png'>
@@ -35,29 +36,19 @@
     </li>
   {{/component}}
 
-  {{#component footerComponent}}
-    <small>
-      And consider
-      <button class='btn btn-link text-primary align-baseline m-0' type='button'
-        onclick={{action share 'facebook'}}>
-        sharing on Facebook&zwj;
-      </button>.
-    </small>
-
-    <p>
-      {{#if canReset}}
-        <button class='btn btn-link text-secondary align-baseline' type='button'
-          onclick={{action (mut didSubmit) false}}>
-          Reset
-        </button>
-
-        or
-      {{/if}}
-
-      <button class='btn btn-dark' type='button'
-        onclick={{action buySupplies}}>
-        Buy Supplies
+  {{#component footerComponent class='mt-4'}}
+    {{#if canReset}}
+      <button class='btn btn-link text-secondary align-baseline' type='button'
+        onclick={{action (mut didSubmit) false}}>
+        Reset
       </button>
-    </p>
+
+      or
+    {{/if}}
+
+    <button class='btn bg-primary btn-outline-primary text-white' type='button'
+      onclick={{action share 'facebook'}}>
+      Share on Facebook
+    </button>
   {{/component}}
 {{/unless}}

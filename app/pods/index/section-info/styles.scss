@@ -3,6 +3,8 @@
 
   padding-top: 2rem;
   padding-bottom: 2rem;
+
+  font-weight: 300;
 }
 
 ul {
@@ -27,6 +29,11 @@ ul {
   }
 
   margin-bottom: 0;
+}
+
+em {
+  font-style: normal;
+  font-weight: 400;
 }
 
 li {

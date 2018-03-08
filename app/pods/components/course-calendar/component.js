@@ -10,27 +10,27 @@ const COURSE_END = '2018-05-13';
 const COURSE_LESSONS = [{
   slug: 'knife',
   title: 'Week 1: Knife Skills',
-  description: 'Knife skills, including chopping, dicing, and basic safety'
+  description: htmlSafe('<em>Knife skills</em>, including <em>chopping</em>, <em>dicing</em>, and basic safety')
 }, {
   slug: 'pan',
   title: 'Week 2: Cooking Proteins',
-  description: '3 common techniques for cooking proteins like fish, chicken, and tofu'
+  description: htmlSafe('3 common techniques for cooking proteins like <em>fish</em>, <em>chicken</em>, and <em>tofu</em>')
 }, {
   slug: 'shop',
   title: 'Week 3: How to Shop',
-  description: 'Where, how, and why to shop for the best ingredients you can get'
+  description: htmlSafe('Where, how, and why to <em>shop</em> for the <em>best ingredients</em> you can get')
 }, {
   slug: 'recycle',
   title: 'Week 4: The Continuous Kitchen',
-  description: 'How to use your cooking by-products to run a budget-friendly, eco-conscious, continuous kitchen'
+  description: htmlSafe('How to use your cooking by-products to run a <em>budget-friendly</em>, <em>eco-conscious</em>, <em>continuous</em> kitchen')
 }, {
   slug: 'clock',
   title: 'Week 5: Timing',
-  description: htmlSafe('What cooking times <em>actually</em> mean')
+  description: htmlSafe('What cooking times <em>actually mean</em>')
 }, {
   slug: 'camera',
   title: 'Week 6: Meal Prep',
-  description: 'The strategies real chefs use when planning and presenting tasty, Instagrammable meals'
+  description: htmlSafe('The strategies <em>real chefs</em> use when <em>planning</em> and <em>presenting</em> tasty, Instagrammable meals')
 }, {
   slug: 'learning',
   description: 'And much, much more!'
