@@ -1,0 +1,14 @@
+& {
+  background: darken($primary, 20%);
+  color: $primary;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+    color: lighten($primary, 5%);
+  }
+}
