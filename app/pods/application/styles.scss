@@ -1,3 +1,17 @@
+& {
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+
+  -webkit-perspective: 1px;
+  -moz-perspective: 1px;
+  perspective: 1px;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
 button:focus {
   outline: none;
   box-shadow: none !important;
