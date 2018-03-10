@@ -1,6 +1,4 @@
-<div class='container'>
-  {{yield (hash
-    question=(component questionComponent class=(concat 'col-10 offset-1 ' childrenClass))
-    answer=(component answerComponent class=(concat 'col-10 offset-1 ' childrenClass))
-  )}}
-</div>
+{{yield (hash
+  question=(component questionComponent)
+  answer=(component answerComponent)
+)}}

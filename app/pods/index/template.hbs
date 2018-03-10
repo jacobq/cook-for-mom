@@ -11,13 +11,20 @@
   requestNudgeFor=(action application.requestNudgeFor application 'navbar')
   cancelNudge=(action (mut application.isNudging) false)}}
 
-{{#index/section-objection childrenClass='col-md-7 offset-md-1' as |objection|}}
-  {{#objection.question}} Are you more comfortable washing than cooking? {{/objection.question}}
-  {{#objection.answer}}
-    <p> We will email you <em>6 custom lessons</em>—one per week, every week—specially designed to teach you <em>cooking fundamentals</em>. Each lesson comes with plenty of <em>supplemental links, videos, and recipes</em> in case you'd like to explore a topic further. </p>
-    <p> Whether you're a kitchen zero or culinary hero, each week's <em>tested recipes</em> will have you practicing what you've learned. We are <em>confident</em> you will be ready to cook a <em>gourmet dinner</em> come Mother's Day! </p>
-  {{/objection.answer}}
-{{/index/section-objection}}
+{{#parallax-container as |parallax|}}
+  {{parallax.fluid class='background potatoes'
+    onResize=(action computeParallaxBackgroundStyle)}}
+
+  {{#parallax.fluid class='container-fluid mt-4 mb-4 pt-4 pb-4'}}
+    {{#index/section-objection class='col-md-4 rounded' as |objection|}}
+      {{#objection.question}} Are you more comfortable washing than cooking? {{/objection.question}}
+      {{#objection.answer}}
+        <p> We will email you <em>6 custom lessons</em>—one per week, every week—specially designed to teach you <em>cooking fundamentals</em>. </p>
+        <p> Whether you're a kitchen zero or culinary hero, we are <em>confident</em> you will be ready to cook a <em>gourmet dinner</em> come Mother's Day! </p>
+      {{/objection.answer}}
+    {{/index/section-objection}}
+  {{/parallax.fluid}}
+{{/parallax-container}}
 
 {{#index/section-info
   onScrollOutBottom=(action (mut application.canNudgeUser) true) as |info|}}
@@ -52,13 +59,20 @@
   {{/meal-menu}}
 {{/index/section-info}}
 
-{{#index/section-objection childrenClass='col-md-6 offset-md-4' as |objection|}}
-  {{#objection.question}} Is Mom vegan? Need a gluten-free option? {{/objection.question}}
-  {{#objection.answer}}
-    <p> Each weekly lesson focuses on <em>cooking fundamentals</em> useful for carnivores and raw vegans alike. </p>
-    <p> Lessons' recipes will include suggested modifications for many <em>popular diets</em>; the Week 6 (Mother's Day!) recipes will come with inline notes for <em>vegetarian</em> & <em>vegan</em> options. </p>
-  {{/objection.answer}}
-{{/index/section-objection}}
+{{#parallax-container as |parallax|}}
+  {{parallax.fluid class='background soup'
+    onResize=(action computeParallaxBackgroundStyle)}}
+
+  {{#parallax.fluid class='container-fluid mt-4 mb-4 pt-4 pb-4'}}
+    {{#index/section-objection class='col-md-4 offset-md-4 rounded' as |objection|}}
+      {{#objection.question}} Is Mom vegan? Need a gluten-free option? {{/objection.question}}
+      {{#objection.answer}}
+        <p> Each weekly lesson focuses on <em>cooking fundamentals</em> useful to carnivores and herbivores alike. </p>
+        <p> Lessons' recipes will include suggested modifications for many <em>popular diets</em>; the Week 6 (Mother's Day!) recipes will come with inline notes for <em>vegetarian</em> & <em>vegan</em> options. </p>
+      {{/objection.answer}}
+    {{/index/section-objection}}
+  {{/parallax.fluid}}
+{{/parallax-container}}
 
 {{#index/section-info as |info|}}
   <a class='anchor' id='six-free-lessons' />
@@ -97,50 +111,70 @@
   {{/course-calendar}}
 {{/index/section-info}}
 
-{{#index/section-objection childrenClass='col-md-6 offset-md-2' as |objection|}}
-  {{#objection.question}} Feeling crunched for time? {{/objection.question}}
-  {{#objection.answer}}
-    <p> If you want to spend <em>less than 5 hours per week</em> in the kitchen, let's make the most of your time! Our lessons are packed full of <em>helpful tips</em> for common tasks like shopping, cooking, and cleaning. </p>
-    <p> You should expect to spend 2 - 4 hours each week shopping and cooking, and can schedule these at your leisure. Our final Mother's Day meal will require 6 - 8 hours; we will help you <em>schedule your shopping and prep</em> across 2 or 3 days. </p>
-  {{/objection.answer}}
-{{/index/section-objection}}
+{{#parallax-container as |parallax|}}
+  {{parallax.fluid class='background tacos'
+    onResize=(action computeParallaxBackgroundStyle)}}
+
+  {{#parallax.fluid class='container-fluid mt-4 mb-4 pt-4 pb-4'}}
+    {{#index/section-objection class='col-md-4 offset-md-7 rounded' as |objection|}}
+      {{#objection.question}} Feeling crunched for time? {{/objection.question}}
+      {{#objection.answer}}
+        <p> If you want to spend <em>less than 5 hours per week</em> in the kitchen, let's make the most of your time! Our lessons are packed full of <em>helpful tips</em> for common tasks like shopping, cooking, and cleaning. </p>
+        <p> Learning to run a <em>continuous kitchen</em> will further help you <em>save time</em> and <em>eat healthy</em> by reusing by-products like leftover veggies and chicken bones.</p>
+      {{/objection.answer}}
+    {{/index/section-objection}}
+  {{/parallax.fluid}}
+{{/parallax-container}}
 
 {{#index/section-info
   onScrollOutBottom=(action application.requestNudgeFor application 'why-is-this-free' 'didScrollPast') as |info|}}
   <a class='anchor' id='why-is-this-free' />
   {{#info.title}} Why Is This Free? {{/info.title}}
 
-  <div class='row'>
+  <div class='row align-items-center'>
+    <div class='d-none d-md-block col-md-4'>
+      <div class='card p-3'>
+        <img class='card-img-top' src='/assets/images/heart.jpg'>
+      </div>
+    </div>
+
     <div class='col-md-8'>
       {{#info.lead}} We swear, there really is no catch. {{/info.lead}}
       {{#info.content}}
         <p> <em>Cook For Mom</em> is a bespoke, ethically-produced course curated and largely written by <em><a href='#corey'>Corey Mintz</a></em>. Corey is a Toronto-based food writer, and in a former life even <em>cooked professionally</em> (bio below). </p>
         <p> <em><a href='#aidan'>Aidan Nulman</a></em> created this site, owns the accounts, and is subsidizing costs. In his own time, Aidan is working on <em>software for cooks</em>; through this course he hopes to <em>provide value</em> to (and hopefully meet!) strangers who want to cook better. </p>
-        <p> While we are inspired by innovation we see in home cooking—from <em>Instant Pot</em> to <em>Blue Apron</em>—we are concerned with recent trends around food education. School districts are <em>cutting home ec</em> programs, and many Western, dual-income households struggle to build lasting <em>food traditions</em>.</p>
+        <p> While we are inspired by innovation we see in home cooking—from <em>Instant Pot</em> to <em>Blue Apron</em>—we are concerned with recent trends around food education. School districts have been <em>cutting home ec</em> programs since the 1980s, and many Western, dual-income households struggle to build lasting <em>food traditions</em>.</p>
         <p class='mb-0'> We are excited to explore new ways to make food education <em>easy</em> and <em>fun</em>, and very much hope you will join us! </p>
       {{/info.content}}
     </div>
   </div>
 {{/index/section-info}}
 
-{{#index/section-objection childrenClass='col-md-6 offset-md-2' as |objection|}}
-  {{#objection.question}} Need kitchen gear? {{/objection.question}}
-  {{#objection.answer}}
-    <p> You don't need a <em>rice cooker</em> or a <em>stand mixer</em> to follow along, but you will need some basics. In particular: </p>
-    <ul>
-      {{! todo affiliate? }}
-      <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
-      <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
-      <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
-      <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a wine bottle will do in a pinch!)</li>
-    </ul>
+{{#parallax-container as |parallax|}}
+  {{parallax.fluid class='background cookies'
+    onResize=(action computeParallaxBackgroundStyle)}}
 
-    <p class='small'>
-      If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca".
-      For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.
-    </p>
-  {{/objection.answer}}
-{{/index/section-objection}}
+  {{#parallax.fluid class='container-fluid mt-4 mb-4 pt-4 pb-4'}}
+    {{#index/section-objection class='col-md-4 offset-md-5 rounded' as |objection|}}
+      {{#objection.question}} Need kitchen gear? {{/objection.question}}
+      {{#objection.answer}}
+        <p> You don't need a <em>rice cooker</em> or a <em>stand mixer</em> to follow along, but you will need some basics. In particular: </p>
+        <ul>
+          {{! todo affiliate? }}
+          <li> <strong>A good chef's knife</strong>, like <a href='https://www.amazon.com/dp/B008GRUNOC' target='_blank'>this one from Wusthof</a></li>
+          <li> <strong>A cutting board</strong>, like <a href='https://www.amazon.com/dp/B000AAM0EY' target='_blank'>this plastic one from OXO</a></li>
+          <li> <strong>A stainless steel pan</strong>, like <a href='https://www.amazon.com/dp/B00JAP44MQ' target='_blank'>this Tramontina skillet</a></li>
+          <li> <strong>A rolling pin</strong>, like <a href='https://www.amazon.com/dp/B000IYYFIQ' target='_blank'>this maple dowel</a> (though a wine bottle will do in a pinch!)</li>
+        </ul>
+
+        <p class='small'>
+          If the linked Amazon product does not ship to your address, try replacing "amazon.com" with your country's localized Amazon, eg "amazon.ca".
+          For more recommendations, check out <a href='https://thewirecutter.com/kitchen-dining/'>The Wirecutter</a>.
+        </p>
+      {{/objection.answer}}
+    {{/index/section-objection}}
+  {{/parallax.fluid}}
+{{/parallax-container}}
 
 {{#index/section-info as |info|}}
   <a class='anchor' id='about-us' />
@@ -171,17 +205,24 @@
   </div>
 {{/index/section-info}}
 
-{{#index/section-objection childrenClass='col-md-6 offset-md-6' as |objection|}}
-  {{#objection.question}} Don't cook alone! {{/objection.question}}
-  {{#objection.answer}}
-    <p> Come <em>say hello</em> and share your <em>successes</em> and <em>questions</em> with us online! </p>
-    <p> We are committed to maintaining an <em>inclusive community</em> of commenters and co-collaborators. </p>
-    <p>
-      Please join us on
-      <a href='https://facebook.com/cookformomdotcom' target='_blank'>Facebook</a>;
-      <a href='https://instagram.com/cookformomdotcom' target='_blank'>Instagram</a>;
-      <a href='https://twitter.com/cookformom' target='_blank'>Twitter</a>; and
-      <a href='https://reddit.com/r/cookformom' target='_blank'>Reddit</a>.
-    </p>
-  {{/objection.answer}}
-{{/index/section-objection}}
+{{#parallax-container as |parallax|}}
+  {{parallax.fluid class='background heart'
+    onResize=(action computeParallaxBackgroundStyle)}}
+
+  {{#parallax.fluid class='container-fluid mt-4 mb-4 pt-4 pb-4'}}
+    {{#index/section-objection class='col-md-4 col-md-3 rounded' as |objection|}}
+      {{#objection.question}} Don't cook alone! {{/objection.question}}
+      {{#objection.answer}}
+        <p> Come <em>say hello</em> and share your <em>successes</em> and <em>questions</em> with us online! </p>
+        <p> We are committed to maintaining an <em>inclusive community</em> of commenters and co-collaborators. </p>
+        <p>
+          Please join us on
+          <a href='https://facebook.com/cookformomdotcom' target='_blank'>Facebook</a>;
+          <a href='https://instagram.com/cookformomdotcom' target='_blank'>Instagram</a>;
+          <a href='https://twitter.com/cookformom' target='_blank'>Twitter</a>; and
+          <a href='https://reddit.com/r/cookformom' target='_blank'>Reddit</a>.
+        </p>
+      {{/objection.answer}}
+    {{/index/section-objection}}
+  {{/parallax.fluid}}
+{{/parallax-container}}

@@ -1,8 +1,8 @@
 & {
-  background: lighten($color-gainsboro, 10%);
-
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
+  flex-direction: column;
+  background: transparentize($color-gainsboro, 0.3);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 header {
