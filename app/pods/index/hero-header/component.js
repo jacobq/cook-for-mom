@@ -1,8 +1,7 @@
 import Component from '@ember/component';
 import { bind, once } from '@ember/runloop';
 import { inject as service } from '@ember/service';
-
-const BOOTSTRAP_MD_BREAKPOINT = 768; // from https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss#L171
+import BREAKPOINTS from '../../../utils/breakpoints';
 
 export default Component.extend({
   tagName: 'header',
@@ -51,5 +50,5 @@ export default Component.extend({
 });
 
 function computeWindowSize() {
-  this.set('isFormFloating', window.innerWidth >= BOOTSTRAP_MD_BREAKPOINT);
+  this.set('isFormFloating', window.innerWidth >= BREAKPOINTS.md);
 }
