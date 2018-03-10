@@ -3,3 +3,11 @@
 @import "ember-power-calendar";
 
 @import 'pod-styles';
+
+html, body {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -webkit-overflow-scrolling: touch;
+}
