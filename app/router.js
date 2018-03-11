@@ -12,12 +12,9 @@ const Router = EmberRouter.extend({
   didTransition() {
     this._super(...arguments);
 
-    if (typeof FastBoot === undefined) {
+    if (typeof FastBoot === 'undefined') {
       trackPage(this);
     }
-  },
-
-  _trackPage() {
   }
 });
 
@@ -31,6 +28,6 @@ function trackPage(ctx) {
     const page = ctx.get('url');
     const title = ctx.getWithDefault('currentRouteName', 'unknown');
 
-    get(ctx, 'metrics').trackPage({ page, title });
+    get(ctx, 'metrics').trackPage('Segment', { page, title });
   });
 }
