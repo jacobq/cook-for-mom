@@ -1,9 +1,19 @@
 import Controller, { inject as controller } from '@ember/controller';
+import { validator, buildValidations } from 'ember-cp-validations';
+
 import BREAKPOINTS from '../../utils/breakpoints';
 
-export default Controller.extend({
+const Validations = buildValidations({
+  email: [
+    validator('presence', true),
+    validator('format', { type: 'email' })
+  ]
+});
+
+export default Controller.extend(Validations, {
   application: controller(),
 
+  email: '',
   isHeroFormShowing: true,
 
   computeParallaxBackgroundStyle

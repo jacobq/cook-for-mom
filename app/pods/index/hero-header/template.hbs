@@ -25,16 +25,30 @@
       <div class='input-group d-block d-md-flex'>
         <input type='email' class='form-control'
           placeholder='julias.child@cookformom.com'
+          onfocus={{action (mut isInputFocused) true}}
+          onblur={{action (mut isInputFocused) false}}
           onkeydown={{action form.keydown}}
-          aria-label="Your email">
-
+          oninput={{action onInput value='target.value'}}
+          aria-label="Your email"
+          value={{email}}>
         <div class='input-group-append'>
           <button class='btn bg-primary btn-outline-primary text-white' type='button'
+            disabled={{not validations.isValid}}
             onclick={{action form.submit}}>
             Get Free Meal Plan
           </button>
           {{! todo: disable unless filled in + show CSS tooltip }}
         </div>
+
+        {{#if (and
+          (not validations.isValid)
+          (gt email.length 0)
+          (not isInputFocused)
+        )}}
+          <div class='invalid-feedback d-block'>
+            {{map validations.attrs.email.errors by='message'}}
+          </div>
+        {{/if}}
       </div>
     {{/form.main}}
 

@@ -1,12 +1,18 @@
 {{index/hero-header
+  email=email
+  validations=validations
   didSubmit=(readonly application.didSubmit)
+  onInput=(action (mut email))
   onSubmit=(action (mut application.didSubmit) true)
   onFormVisibilityChange=(action (mut isHeroFormShowing))}}
 
 {{index/nav-bar
+  email=email
+  validations=validations
   isButtonVisible=(not isHeroFormShowing)
   isNudging=(readonly application.isNudging)
   didSubmit=(readonly application.didSubmit)
+  onInput=(action (mut email))
   onSubmit=(action (mut application.didSubmit) true)
   requestNudgeFor=(action application.requestNudgeFor application 'navbar')
   cancelNudge=(action (mut application.isNudging) false)}}
