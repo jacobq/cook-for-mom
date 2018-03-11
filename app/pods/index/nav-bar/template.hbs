@@ -42,10 +42,25 @@
             <input type='email' class='form-control'
               tabindex=1
               placeholder='julias.child@cookformom.com'
+              onfocus={{action (mut isInputFocused) true}}
+              onblur={{action (mut isInputFocused) false}}
               onkeydown={{action form.keydown}}
-              aria-label="Your email">
+              oninput={{action onInput value='target.value'}}
+              aria-label="Your email"
+              value={{email}}>
+
+            {{#if (and
+              (not validations.isValid)
+              (gt email.length 0)
+              (not isInputFocused)
+            )}}
+              <div class='invalid-feedback d-block'>
+                {{map validations.attrs.email.errors by='message'}}
+              </div>
+            {{/if}}
 
             <button class='btn bg-primary btn-outline-primary text-white' type='button'
+              disabled={{not validations.isValid}}
               onclick={{action form.submit}}>
               Sign Me Up
             </button>
