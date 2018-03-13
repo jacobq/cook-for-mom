@@ -1,8 +1,11 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import { bind, once } from '@ember/runloop';
 import { isPresent } from '@ember/utils';
 
 export default Component.extend({
+  userAgent: service(),
+
   tagName: 'nav',
   classNames: ['container-fluid'],
 
@@ -37,6 +40,11 @@ export default Component.extend({
       capture: true,
       passive: true
     });
+
+    if (this.get('userAgent.browser.isFirefox')) {
+      this.element.style.height = this.element.clientHeight;
+      this.element.style['overflow-y'] = 'hidden';
+    }
   },
 
   willDestroyElement() {
